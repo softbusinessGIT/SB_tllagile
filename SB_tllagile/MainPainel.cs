@@ -150,10 +150,6 @@ namespace SB_tllagile
             listaAlterColab = db.GetTodosColab();
 
             AtualizarListBox();
-
-
-            //AtualizarAlterListBox();
-
         }
 
         private void AlterColabAplicarButton_Click(object sender, EventArgs e)
@@ -165,9 +161,10 @@ namespace SB_tllagile
             String[] DadosArray = DadosUser.Split('|');
             
 
-            String IdColab = DadosArray[0];
+            String IdColab = DadosArray[0].Replace(" ", "").Replace("\t\t", "");
             String DisponibilidadeColab = DadosArray[2];
-           // Console.WriteLine("ID:" + DadosArray[0]+ "Estado:"+DadosArray[2]);
+            //DisponibilidadeColab.Replace(" ", "");
+            // Console.WriteLine("ID:" + DadosArray[0]+ "Estado:"+DadosArray[2]);
             if (DisponibilidadeColab.Contains("Disponivel"))
             {
                 db.AlterColabBd(IdColab,"0");
