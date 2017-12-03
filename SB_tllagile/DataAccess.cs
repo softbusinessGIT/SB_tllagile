@@ -11,6 +11,7 @@ namespace SB_tllagile
     // Classe com as funções de pesquisa, edição e inserção na BD
     class DataAccess
     {
+        //Método pequisa na base de dados todos os colaboradores por estado/disponibilidade
         public List<Colaborador> GetPessoa(int disponibilidade)
         {
             //using faz a ligação a BD e no fim dá KILL ao processo, para evitar loops e inconsistências
@@ -23,6 +24,7 @@ namespace SB_tllagile
             //throw new NotImplementedException();
 
         }
+        //Método que pequisa na base de dados todos os colaboradores
         public List<Colaborador> GetTodosColab()
         {
             //using faz a ligação a BD e no fim dá KILL ao processo, para evitar loops e inconsistências
@@ -34,7 +36,8 @@ namespace SB_tllagile
             //throw new NotImplementedException();
 
         }
-        public void InsertColabBd(string nomeIn, string disponibilidadeIn)
+        //Método que insere na base de dados um colaborador
+        public void InsertColabBd(String nomeIn, String disponibilidadeIn)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper_db.ConVal("tllagileDB")))
             {
@@ -47,7 +50,8 @@ namespace SB_tllagile
             }
 
         }
-        public void AlterColabBd(String id_colabIn, string disponibilidadeIn)
+        //Método que Altera (Update) o estado/disponibilidade de um colaborador
+        public void AlterColabBd(String id_colabIn, String disponibilidadeIn)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper_db.ConVal("tllagileDB")))
             {
@@ -60,8 +64,8 @@ namespace SB_tllagile
             }
 
         }
-
-        public List<Utilizador> SearchUserBd(string username, string password)
+        //Método que Pesquisa os utilizadores na bd
+        public List<Utilizador> SearchUserBd(String username, String password)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper_db.ConVal("tllagileDB")))
             {
@@ -71,9 +75,8 @@ namespace SB_tllagile
             }
 
         }
-
-
-        public void InsertProjetoBd(string nomeIn, DateTime data_iniIn, DateTime data_fimIn)
+        //Método que insere os projetos na base de dados
+        public void InsertProjetoBd(String nomeIn, DateTime data_iniIn, DateTime data_fimIn)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper_db.ConVal("tllagileDB")))
             {
@@ -83,6 +86,19 @@ namespace SB_tllagile
                 connection.Execute($"insert into projeto(nome,data_ini,data_fim) values(@nome,@data_ini,@data_fim)", listaProjeto);
             }
 
+        }
+
+        //Método que Pesquisa equipas por estado
+        public List<Equipa> SearchEquipaBd(int estadoIn)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper_db.ConVal("tllagileDB")))
+            {
+                var outputQueryBd = connection.Query<Equipa>($" select distinct E.nome, P.nome as nomeProj, E.estado from equipa E, colaborador C, projeto P, funcao F where estado = '{estadoIn}'and E.id_projeto = P.id_projeto").ToList();
+                //var output = connection.Query<Colaborador>("dbo.Nome_Procedure @estado", new {estado = estado}).ToList();
+                return outputQueryBd;
+
+
+            }
         }
     }
 }

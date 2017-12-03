@@ -12,7 +12,7 @@ namespace SB_tllagile
         public DateTime data_ini { get; set; }
         public DateTime data_fim { get; set; }
 
-        //metodo que retorna informação de um objeto Colaborador
+        //metodo que retorna informação de um objeto Projeto
         public string DadosProjeto
         {
             get

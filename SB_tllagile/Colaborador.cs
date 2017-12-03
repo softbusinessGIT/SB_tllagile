@@ -29,7 +29,7 @@ namespace SB_tllagile
                 }
                 else
                 {
-                    estado = "Indesponivel";
+                    estado = "Indisponivel";
                 }
                 String id_colab_retorno = id_colab.PadRight(25 - id_colab.Length) +"\t\t";
                 String nome_retorno = nome.PadRight(25 - nome.Length)+"\t\t";

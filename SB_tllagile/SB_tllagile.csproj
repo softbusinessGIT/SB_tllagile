@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Colaborador.cs" />
     <Compile Include="DataAccess.cs" />
+    <Compile Include="Equipa.cs" />
     <Compile Include="Helper_db.cs" />
     <Compile Include="MainPainel.cs">
       <SubType>Form</SubType>

@@ -15,6 +15,7 @@ namespace SB_tllagile
         //Variaveis 
         List<Colaborador> listaPesquisaBasicaColab = new List<Colaborador>();
         List<Colaborador> listaAlterColab = new List<Colaborador>();
+        List<Equipa> listaPesquisaEquipaEstado = new List<Equipa>();
         DataAccess db = new DataAccess(); //cria o objeto db
 
         public MainPainel()
@@ -23,7 +24,15 @@ namespace SB_tllagile
             //SearchColabBasicaPainel.BackColor = Color.LightGray;
             //menuStrip1.ForeColor = Color.White; //coloca a letra do menu a branco
             AtualizarListBox();
+
+            HomeWebsiteButton.FlatAppearance.BorderSize = 0;
+            HomeWebsiteButton.FlatAppearance.BorderColor = Color.White;
+
+
             comboBoxBasica.SelectedIndex = 0;
+            InsComboBox.SelectedIndex = 0;
+            SearchPesquisaEstadoComboBox.SelectedIndex = 0;
+
             DataIniTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
             DataFimTextBox.Text = DateTime.Now.AddMonths(3).ToString("yyyy-MM-dd");
         }
@@ -37,6 +46,10 @@ namespace SB_tllagile
 
             listBoxColab.DataSource = listaPesquisaBasicaColab; // Indicação que a fonte de informação é a lista
             listBoxColab.DisplayMember = "DadosPesquisaBasica"; // Mostrar o conteudo da função Colaborador.DadosPesquisaBasica();
+
+            SearchEquipaEstadolistBox.DataSource = listaPesquisaEquipaEstado; // Indicação que a fonte de informação é a lista
+            SearchEquipaEstadolistBox.DisplayMember = "DadosEquipa"; // Mostrar o conteudo da função Colaborador.DadosPesquisaBasica();
+
         }
         private void PesquisarBasicaButton_Click(object sender, EventArgs e)
         {
@@ -61,25 +74,32 @@ namespace SB_tllagile
             InsertProjetoPainel.Visible = false;
             InsertColabPainel.Visible = false;
             AlterColabPainel.Visible = false;
+            HomePainel.Visible = false;
+            SearchEquipaEstadoPanel.Visible = false;
         }
 
         private void InsButton_Click(object sender, EventArgs e)
         {
+
             //DataAccess db = new DataAccess(); //cria o objeto db
-            if (InsNomeTextBox.Text.Equals("") && InsCodigoTextBox.Text.Equals("")) //se os campos forem vazios apresenta uma janela de erro
+            if (InsNomeTextBox.Text.Equals("")) //se os campos forem vazios apresenta uma janela de erro
             {
                 DialogResult dialogCamposIns = MessageBox.Show("Campos vazios, Preencha todos campos e tente novamente",
                "Erro - Campos vazios", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else // se não faz a query a BD
             {
-                db.InsertColabBd(InsNomeTextBox.Text, InsCodigoTextBox.Text);
-
+                if (InsComboBox.Text.Equals("Disponivel"))
+                {
+                    db.InsertColabBd(InsNomeTextBox.Text, "1");
+                }
+                else
+                {
+                    db.InsertColabBd(InsNomeTextBox.Text, "0");
+                }
                 DialogResult dialogConfirmar = MessageBox.Show("Inserção realizada com sucesso",
                "Inserir - Colaboradores", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 InsNomeTextBox.Text = "";
-                InsCodigoTextBox.Text = "";
             }
         }
 
@@ -89,6 +109,8 @@ namespace SB_tllagile
             InsertProjetoPainel.Visible = false;
             InsertColabPainel.Visible = true;
             AlterColabPainel.Visible = false;
+            HomePainel.Visible = false;
+            SearchEquipaEstadoPanel.Visible = false;
         }
 
         //Método que trata da inserção de um Projeto
@@ -132,6 +154,8 @@ namespace SB_tllagile
             InsertProjetoPainel.Visible = true;
             InsertColabPainel.Visible = false;
             AlterColabPainel.Visible = false;
+            HomePainel.Visible = false;
+            SearchEquipaEstadoPanel.Visible = false;
         }
 
         private void colaboradorToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -140,6 +164,8 @@ namespace SB_tllagile
             InsertProjetoPainel.Visible = false;
             InsertColabPainel.Visible = false;
             AlterColabPainel.Visible = true;
+            HomePainel.Visible = false;
+            SearchEquipaEstadoPanel.Visible = false;
 
             // AlterColabAplicarButton.Enabled = false;// Desabilita o botão
             PesquisarTodosUsers(); // invoca o método que pesquisa por todos os user na BD
@@ -159,7 +185,7 @@ namespace SB_tllagile
 
             String DadosUser = AlterColabListBox.Text;
             String[] DadosArray = DadosUser.Split('|');
-            
+
 
             String IdColab = DadosArray[0].Replace(" ", "").Replace("\t\t", "");
             String DisponibilidadeColab = DadosArray[2];
@@ -167,14 +193,14 @@ namespace SB_tllagile
             // Console.WriteLine("ID:" + DadosArray[0]+ "Estado:"+DadosArray[2]);
             if (DisponibilidadeColab.Contains("Disponivel"))
             {
-                db.AlterColabBd(IdColab,"0");
+                db.AlterColabBd(IdColab, "0");
                 DialogResult dialogConfirmar = MessageBox.Show("Alteração realizada com sucesso",
                "Alterar - Colaboradores", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
             else
             {
-                db.AlterColabBd(IdColab,"1");
+                db.AlterColabBd(IdColab, "1");
                 DialogResult dialogConfirmar = MessageBox.Show("Alteração realizada com sucesso",
                "Alterar - Colaboradores", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -186,6 +212,45 @@ namespace SB_tllagile
         {
 
         }
+
+        private void HomeWebsiteButton_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://softbusiness.mypressonline.com/");
+        }
+
+        private void homeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SearchColabBasicaPainel.Visible = false;
+            InsertProjetoPainel.Visible = false;
+            InsertColabPainel.Visible = false;
+            AlterColabPainel.Visible = false;
+            HomePainel.Visible = true;
+            SearchEquipaEstadoPanel.Visible = false;
+        }
+
+        private void porEstadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SearchColabBasicaPainel.Visible = false;
+            InsertProjetoPainel.Visible = false;
+            InsertColabPainel.Visible = false;
+            AlterColabPainel.Visible = false;
+            HomePainel.Visible = false;
+            SearchEquipaEstadoPanel.Visible = true;
+        }
+
+        private void SearchEquipaButton_Click(object sender, EventArgs e)
+        {
+            if (SearchPesquisaEstadoComboBox.Text.Equals("Disponivel"))
+            {
+                listaPesquisaEquipaEstado = db.SearchEquipaBd(0); //Equipas disponivel
+            }
+            else
+            {
+                listaPesquisaEquipaEstado = db.SearchEquipaBd(1); //Equipas com projetos atribuidos (indisponivel)
+            }
+            AtualizarListBox(); // Atualizar a comboBox com a informação
+        }
+
         //Atualiza a listBox com a informação returnada da query a BD
         /*public void AtualizarAlterListBox()
         {
