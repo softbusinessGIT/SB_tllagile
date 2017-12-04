@@ -17,7 +17,7 @@ namespace SB_tllagile
         // public string id_avaliacao{ get; set; }
 
         //metodo que retorna informação de um objeto Equipa
-        public string DadosEquipa
+        public string dadosEquipa
         {
             get
             {

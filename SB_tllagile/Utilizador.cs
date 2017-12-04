@@ -18,7 +18,7 @@ namespace SB_tllagile
         public int estado { get; set; }
 
         //metodo que retorna informação de um objeto Colaborador
-        public string Info
+        public string info
         {
             get
             {

@@ -16,7 +16,7 @@ namespace SB_tllagile
         
 
         //metodo que retorna informação de um objeto Colaborador
-        public string DadosPesquisaBasica
+        public string dadosPesquisaBasica
         {
             get
             {

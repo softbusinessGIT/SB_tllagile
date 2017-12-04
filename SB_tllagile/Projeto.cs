@@ -13,7 +13,7 @@ namespace SB_tllagile
         public DateTime data_fim { get; set; }
 
         //metodo que retorna informação de um objeto Projeto
-        public string DadosProjeto
+        public string dadosProjeto
         {
             get
             {

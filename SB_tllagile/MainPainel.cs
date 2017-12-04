@@ -23,7 +23,7 @@ namespace SB_tllagile
             InitializeComponent();
             //SearchColabBasicaPainel.BackColor = Color.LightGray;
             //menuStrip1.ForeColor = Color.White; //coloca a letra do menu a branco
-            AtualizarListBox();
+            atualizarListBox();
 
             HomeWebsiteButton.FlatAppearance.BorderSize = 0;
             HomeWebsiteButton.FlatAppearance.BorderColor = Color.White;
@@ -39,16 +39,16 @@ namespace SB_tllagile
         //Métodos 
 
         //Atualiza a listBox com a informação returnada da query a BD
-        public void AtualizarListBox()
+        public void atualizarListBox()
         {
             AlterColabListBox.DataSource = listaAlterColab; // Indicação que a fonte de informação é a lista
-            AlterColabListBox.DisplayMember = "DadosPesquisaBasica"; // Mostrar o conteudo da função Colaborador.DadosPesquisaBasica();
+            AlterColabListBox.DisplayMember = "dadosPesquisaBasica"; // Mostrar o conteudo da função Colaborador.dadosPesquisaBasica();
 
             listBoxColab.DataSource = listaPesquisaBasicaColab; // Indicação que a fonte de informação é a lista
-            listBoxColab.DisplayMember = "DadosPesquisaBasica"; // Mostrar o conteudo da função Colaborador.DadosPesquisaBasica();
+            listBoxColab.DisplayMember = "dadosPesquisaBasica"; // Mostrar o conteudo da função Colaborador.dadosPesquisaBasica();
 
             SearchEquipaEstadolistBox.DataSource = listaPesquisaEquipaEstado; // Indicação que a fonte de informação é a lista
-            SearchEquipaEstadolistBox.DisplayMember = "DadosEquipa"; // Mostrar o conteudo da função Colaborador.DadosPesquisaBasica();
+            SearchEquipaEstadolistBox.DisplayMember = "dadosEquipa"; // Mostrar o conteudo da função Colaborador.dadosPesquisaBasica();
 
         }
         private void PesquisarBasicaButton_Click(object sender, EventArgs e)
@@ -57,15 +57,15 @@ namespace SB_tllagile
             if ((comboBoxBasica.Text).Equals("Indisponivel"))
             {
                 // A lista "listaPesquisaBasicaColab" vai conter o retorno da pesquisa á BD
-                listaPesquisaBasicaColab = db.GetPessoa(0);
+                listaPesquisaBasicaColab = db.getPessoa(0);
 
             }
             else
             {
-                listaPesquisaBasicaColab = db.GetPessoa(1);
+                listaPesquisaBasicaColab = db.getPessoa(1);
 
             }
-            AtualizarListBox();
+            atualizarListBox();
         }
 
         private void básicaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -91,11 +91,11 @@ namespace SB_tllagile
             {
                 if (InsComboBox.Text.Equals("Disponivel"))
                 {
-                    db.InsertColabBd(InsNomeTextBox.Text, "1");
+                    db.insertColabBd(InsNomeTextBox.Text, "1");
                 }
                 else
                 {
-                    db.InsertColabBd(InsNomeTextBox.Text, "0");
+                    db.insertColabBd(InsNomeTextBox.Text, "0");
                 }
                 DialogResult dialogConfirmar = MessageBox.Show("Inserção realizada com sucesso",
                "Inserir - Colaboradores", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -126,12 +126,12 @@ namespace SB_tllagile
             else
             {
                 //converte a Strings das TextBox em DateTime
-                DateTime DataInicio = Convert.ToDateTime(DataIniTextBox.Text);
-                DateTime DataFim = Convert.ToDateTime(DataFimTextBox.Text);
+                DateTime dataInicio = Convert.ToDateTime(DataIniTextBox.Text);
+                DateTime dataFim = Convert.ToDateTime(DataFimTextBox.Text);
 
-                if (DataInicio.CompareTo(DataFim) <= 0)
+                if (dataInicio.CompareTo(dataFim) <= 0)
                 {
-                    db.InsertProjetoBd(ProjetoNomeTextBox.Text, DataInicio, DataFim);
+                    db.InsertProjetoBd(ProjetoNomeTextBox.Text, dataInicio, dataFim);
 
                     DialogResult dialogConfirmar = MessageBox.Show("Inserção realizada com sucesso",
                    "Inserir - Projetos", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -168,14 +168,14 @@ namespace SB_tllagile
             SearchEquipaEstadoPanel.Visible = false;
 
             // AlterColabAplicarButton.Enabled = false;// Desabilita o botão
-            PesquisarTodosUsers(); // invoca o método que pesquisa por todos os user na BD
+            pesquisarTodosUsers(); // invoca o método que pesquisa por todos os user na BD
         }
-        public void PesquisarTodosUsers()
+        public void pesquisarTodosUsers()
         {
             //DataAccess db = new DataAccess(); //cria o objeto db
-            listaAlterColab = db.GetTodosColab();
+            listaAlterColab = db.getTodosColab();
 
-            AtualizarListBox();
+            atualizarListBox();
         }
 
         private void AlterColabAplicarButton_Click(object sender, EventArgs e)
@@ -183,28 +183,28 @@ namespace SB_tllagile
             AlterColabAplicarButton.Enabled = true;// Habilitar o botão
 
 
-            String DadosUser = AlterColabListBox.Text;
-            String[] DadosArray = DadosUser.Split('|');
+            String dadosUser = AlterColabListBox.Text;
+            String[] dadosArray = dadosUser.Split('|');
 
 
-            String IdColab = DadosArray[0].Replace(" ", "").Replace("\t\t", "");
-            String DisponibilidadeColab = DadosArray[2];
+            String idColab = dadosArray[0].Replace(" ", "").Replace("\t\t", "");
+            String DisponibilidadeColab = dadosArray[2];
             //DisponibilidadeColab.Replace(" ", "");
-            // Console.WriteLine("ID:" + DadosArray[0]+ "Estado:"+DadosArray[2]);
+            // Console.WriteLine("ID:" + dadosArray[0]+ "Estado:"+dadosArray[2]);
             if (DisponibilidadeColab.Contains("Disponivel"))
             {
-                db.AlterColabBd(IdColab, "0");
+                db.alterColabBd(idColab, "0");
                 DialogResult dialogConfirmar = MessageBox.Show("Alteração realizada com sucesso",
                "Alterar - Colaboradores", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
             else
             {
-                db.AlterColabBd(IdColab, "1");
+                db.alterColabBd(idColab, "1");
                 DialogResult dialogConfirmar = MessageBox.Show("Alteração realizada com sucesso",
                "Alterar - Colaboradores", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            PesquisarTodosUsers();
+            pesquisarTodosUsers();
 
         }
 
@@ -242,20 +242,20 @@ namespace SB_tllagile
         {
             if (SearchPesquisaEstadoComboBox.Text.Equals("Disponivel"))
             {
-                listaPesquisaEquipaEstado = db.SearchEquipaBd(0); //Equipas disponivel
+                listaPesquisaEquipaEstado = db.searchEquipaBd(0); //Equipas disponivel
             }
             else
             {
-                listaPesquisaEquipaEstado = db.SearchEquipaBd(1); //Equipas com projetos atribuidos (indisponivel)
+                listaPesquisaEquipaEstado = db.searchEquipaBd(1); //Equipas com projetos atribuidos (indisponivel)
             }
-            AtualizarListBox(); // Atualizar a comboBox com a informação
+            atualizarListBox(); // Atualizar a comboBox com a informação
         }
 
         //Atualiza a listBox com a informação returnada da query a BD
         /*public void AtualizarAlterListBox()
         {
             AlterCheckedListBox.DataSource = listaAlterColab; // Indicação que a fonte de informação é a lista
-            AlterCheckedListBox.DisplayMember = "DadosPesquisaBasica"; // Mostrar o conteudo da função Colaborador.DadosPesquisaBasica();
+            AlterCheckedListBox.DisplayMember = "dadosPesquisaBasica"; // Mostrar o conteudo da função Colaborador.dadosPesquisaBasica();
         }*/
     }
 }
