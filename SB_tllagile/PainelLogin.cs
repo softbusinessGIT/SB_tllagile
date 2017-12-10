@@ -34,7 +34,7 @@ namespace SB_tllagile
             byte[] hash = sha384.ComputeHash(bytes);
 
             //Pesquisa na Base de dados o utilizador
-            ListaUser = db.SearchUserBd(UserText.Text, GetStringFromHash(hash)); //GetStringFromHash é o metodo que retorna a string da chave encriptada
+            ListaUser = db.SearchUserBd(UserText.Text, getStringFromHash(hash)); //GetStringFromHash é o metodo que retorna a string da chave encriptada
 
             if ((ListaUser.Count).Equals(1))
             {
@@ -55,7 +55,7 @@ namespace SB_tllagile
         }
 
         // Metodo que retorna a string encriptada
-        private static string GetStringFromHash(byte[] hash)
+        private static string getStringFromHash(byte[] hash)
         {
             StringBuilder result = new StringBuilder();
             for (int i = 0; i < hash.Length; i++)

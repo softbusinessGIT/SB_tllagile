@@ -36,6 +36,7 @@
             this.avançadaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.básicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.equipaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.porEstadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inserirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.colaboradorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.equipaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,14 +44,17 @@
             this.alterarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.colaboradorToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.InsertProjetoPainel = new System.Windows.Forms.Panel();
+            this.InsProjDataFimPicker = new System.Windows.Forms.DateTimePicker();
+            this.InsProjDataIniPicker = new System.Windows.Forms.DateTimePicker();
             this.InsProjetoButton = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.ProjetoNomeTextBox = new System.Windows.Forms.TextBox();
-            this.DataIniTextBox = new System.Windows.Forms.TextBox();
-            this.DataFimTextBox = new System.Windows.Forms.TextBox();
             this.InsertColabPainel = new System.Windows.Forms.Panel();
+            this.InsDataNascPicker = new System.Windows.Forms.DateTimePicker();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.InsEmailTextBox = new System.Windows.Forms.TextBox();
             this.InsComboBox = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.InsMecLabel = new System.Windows.Forms.Label();
@@ -73,12 +77,12 @@
             this.HomeWebsiteButton = new System.Windows.Forms.Button();
             this.HomeLabel = new System.Windows.Forms.Label();
             this.SearchEquipaEstadoPanel = new System.Windows.Forms.Panel();
-            this.SearchPesquisaEstadoComboBox = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.SearchEquipaEstadolistBox = new System.Windows.Forms.ListBox();
             this.SearchEquipaButton = new System.Windows.Forms.Button();
-            this.porEstadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SearchEquipaEstadolistBox = new System.Windows.Forms.ListBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.SearchPesquisaEstadoComboBox = new System.Windows.Forms.ComboBox();
+            this.ProjetoNomeTextBox = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.InsertProjetoPainel.SuspendLayout();
             this.InsertColabPainel.SuspendLayout();
@@ -161,6 +165,13 @@
             this.equipaToolStripMenuItem1.Size = new System.Drawing.Size(188, 26);
             this.equipaToolStripMenuItem1.Text = "Equipa";
             // 
+            // porEstadoToolStripMenuItem
+            // 
+            this.porEstadoToolStripMenuItem.Name = "porEstadoToolStripMenuItem";
+            this.porEstadoToolStripMenuItem.Size = new System.Drawing.Size(290, 26);
+            this.porEstadoToolStripMenuItem.Text = "Pesquisa por Disponibilidade";
+            this.porEstadoToolStripMenuItem.Click += new System.EventHandler(this.porEstadoToolStripMenuItem_Click);
+            // 
             // inserirToolStripMenuItem
             // 
             this.inserirToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -209,13 +220,13 @@
             // InsertProjetoPainel
             // 
             this.InsertProjetoPainel.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.InsertProjetoPainel.Controls.Add(this.InsProjDataFimPicker);
+            this.InsertProjetoPainel.Controls.Add(this.InsProjDataIniPicker);
             this.InsertProjetoPainel.Controls.Add(this.InsProjetoButton);
             this.InsertProjetoPainel.Controls.Add(this.label7);
             this.InsertProjetoPainel.Controls.Add(this.label6);
             this.InsertProjetoPainel.Controls.Add(this.label5);
             this.InsertProjetoPainel.Controls.Add(this.ProjetoNomeTextBox);
-            this.InsertProjetoPainel.Controls.Add(this.DataIniTextBox);
-            this.InsertProjetoPainel.Controls.Add(this.DataFimTextBox);
             this.InsertProjetoPainel.Controls.Add(this.label1);
             this.InsertProjetoPainel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.InsertProjetoPainel.Location = new System.Drawing.Point(0, 0);
@@ -223,8 +234,25 @@
             this.InsertProjetoPainel.Size = new System.Drawing.Size(1055, 650);
             this.InsertProjetoPainel.TabIndex = 2;
             // 
+            // InsProjDataFimPicker
+            // 
+            this.InsProjDataFimPicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.InsProjDataFimPicker.Location = new System.Drawing.Point(463, 253);
+            this.InsProjDataFimPicker.Name = "InsProjDataFimPicker";
+            this.InsProjDataFimPicker.Size = new System.Drawing.Size(200, 20);
+            this.InsProjDataFimPicker.TabIndex = 9;
+            // 
+            // InsProjDataIniPicker
+            // 
+            this.InsProjDataIniPicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.InsProjDataIniPicker.Location = new System.Drawing.Point(463, 227);
+            this.InsProjDataIniPicker.Name = "InsProjDataIniPicker";
+            this.InsProjDataIniPicker.Size = new System.Drawing.Size(200, 20);
+            this.InsProjDataIniPicker.TabIndex = 8;
+            // 
             // InsProjetoButton
             // 
+            this.InsProjetoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InsProjetoButton.Location = new System.Drawing.Point(369, 287);
             this.InsProjetoButton.Name = "InsProjetoButton";
             this.InsProjetoButton.Size = new System.Drawing.Size(70, 36);
@@ -236,54 +264,40 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(366, 252);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(363, 253);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(52, 13);
+            this.label7.Size = new System.Drawing.Size(81, 20);
             this.label7.TabIndex = 6;
-            this.label7.Text = "Data final";
+            this.label7.Text = "Data final:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(366, 227);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(363, 227);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(65, 13);
+            this.label6.Size = new System.Drawing.Size(94, 20);
             this.label6.TabIndex = 5;
             this.label6.Text = "Data inicial: ";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(366, 201);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(363, 203);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 13);
+            this.label5.Size = new System.Drawing.Size(59, 20);
             this.label5.TabIndex = 4;
             this.label5.Text = "Nome: ";
-            // 
-            // ProjetoNomeTextBox
-            // 
-            this.ProjetoNomeTextBox.Location = new System.Drawing.Point(437, 198);
-            this.ProjetoNomeTextBox.Name = "ProjetoNomeTextBox";
-            this.ProjetoNomeTextBox.Size = new System.Drawing.Size(165, 20);
-            this.ProjetoNomeTextBox.TabIndex = 3;
-            // 
-            // DataIniTextBox
-            // 
-            this.DataIniTextBox.Location = new System.Drawing.Point(437, 224);
-            this.DataIniTextBox.Name = "DataIniTextBox";
-            this.DataIniTextBox.Size = new System.Drawing.Size(165, 20);
-            this.DataIniTextBox.TabIndex = 2;
-            // 
-            // DataFimTextBox
-            // 
-            this.DataFimTextBox.Location = new System.Drawing.Point(437, 250);
-            this.DataFimTextBox.Name = "DataFimTextBox";
-            this.DataFimTextBox.Size = new System.Drawing.Size(165, 20);
-            this.DataFimTextBox.TabIndex = 1;
             // 
             // InsertColabPainel
             // 
             this.InsertColabPainel.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.InsertColabPainel.Controls.Add(this.InsDataNascPicker);
+            this.InsertColabPainel.Controls.Add(this.label13);
+            this.InsertColabPainel.Controls.Add(this.label12);
+            this.InsertColabPainel.Controls.Add(this.InsEmailTextBox);
             this.InsertColabPainel.Controls.Add(this.InsComboBox);
             this.InsertColabPainel.Controls.Add(this.label2);
             this.InsertColabPainel.Controls.Add(this.InsMecLabel);
@@ -296,13 +310,48 @@
             this.InsertColabPainel.Size = new System.Drawing.Size(1055, 650);
             this.InsertColabPainel.TabIndex = 3;
             // 
+            // InsDataNascPicker
+            // 
+            this.InsDataNascPicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.InsDataNascPicker.Location = new System.Drawing.Point(523, 324);
+            this.InsDataNascPicker.Name = "InsDataNascPicker";
+            this.InsDataNascPicker.Size = new System.Drawing.Size(200, 20);
+            this.InsDataNascPicker.TabIndex = 13;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(366, 326);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(151, 18);
+            this.label13.TabIndex = 12;
+            this.label13.Text = "Data de Nascimento: ";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(366, 295);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(49, 18);
+            this.label12.TabIndex = 11;
+            this.label12.Text = "Email:";
+            // 
+            // InsEmailTextBox
+            // 
+            this.InsEmailTextBox.Location = new System.Drawing.Point(523, 296);
+            this.InsEmailTextBox.Name = "InsEmailTextBox";
+            this.InsEmailTextBox.Size = new System.Drawing.Size(200, 20);
+            this.InsEmailTextBox.TabIndex = 9;
+            // 
             // InsComboBox
             // 
             this.InsComboBox.FormattingEnabled = true;
             this.InsComboBox.Items.AddRange(new object[] {
             "Disponivel",
             "Indisponivel"});
-            this.InsComboBox.Location = new System.Drawing.Point(483, 262);
+            this.InsComboBox.Location = new System.Drawing.Point(523, 266);
             this.InsComboBox.Name = "InsComboBox";
             this.InsComboBox.Size = new System.Drawing.Size(200, 21);
             this.InsComboBox.TabIndex = 8;
@@ -323,13 +372,13 @@
             this.InsMecLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InsMecLabel.Location = new System.Drawing.Point(366, 265);
             this.InsMecLabel.Name = "InsMecLabel";
-            this.InsMecLabel.Size = new System.Drawing.Size(111, 18);
+            this.InsMecLabel.Size = new System.Drawing.Size(59, 18);
             this.InsMecLabel.TabIndex = 6;
-            this.InsMecLabel.Text = "Disponibilidade:";
+            this.InsMecLabel.Text = "Estado:";
             // 
             // InsNomeTextBox
             // 
-            this.InsNomeTextBox.Location = new System.Drawing.Point(483, 233);
+            this.InsNomeTextBox.Location = new System.Drawing.Point(523, 237);
             this.InsNomeTextBox.Name = "InsNomeTextBox";
             this.InsNomeTextBox.Size = new System.Drawing.Size(200, 20);
             this.InsNomeTextBox.TabIndex = 3;
@@ -337,7 +386,7 @@
             // InsButton
             // 
             this.InsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InsButton.Location = new System.Drawing.Point(369, 303);
+            this.InsButton.Location = new System.Drawing.Point(369, 382);
             this.InsButton.Name = "InsButton";
             this.InsButton.Size = new System.Drawing.Size(83, 35);
             this.InsButton.TabIndex = 2;
@@ -536,6 +585,47 @@
             this.SearchEquipaEstadoPanel.Size = new System.Drawing.Size(1055, 650);
             this.SearchEquipaEstadoPanel.TabIndex = 5;
             // 
+            // SearchEquipaButton
+            // 
+            this.SearchEquipaButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchEquipaButton.Location = new System.Drawing.Point(395, 243);
+            this.SearchEquipaButton.Name = "SearchEquipaButton";
+            this.SearchEquipaButton.Size = new System.Drawing.Size(96, 41);
+            this.SearchEquipaButton.TabIndex = 9;
+            this.SearchEquipaButton.Text = "Pesquisar";
+            this.SearchEquipaButton.UseVisualStyleBackColor = true;
+            this.SearchEquipaButton.Click += new System.EventHandler(this.SearchEquipaButton_Click);
+            // 
+            // SearchEquipaEstadolistBox
+            // 
+            this.SearchEquipaEstadolistBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchEquipaEstadolistBox.FormattingEnabled = true;
+            this.SearchEquipaEstadolistBox.ItemHeight = 18;
+            this.SearchEquipaEstadolistBox.Location = new System.Drawing.Point(174, 323);
+            this.SearchEquipaEstadolistBox.Name = "SearchEquipaEstadolistBox";
+            this.SearchEquipaEstadolistBox.Size = new System.Drawing.Size(701, 238);
+            this.SearchEquipaEstadolistBox.TabIndex = 8;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(395, 138);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(240, 20);
+            this.label11.TabIndex = 7;
+            this.label11.Text = "Pesquisar Equipa por estado";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(395, 197);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(64, 20);
+            this.label10.TabIndex = 6;
+            this.label10.Text = "Estado:";
+            // 
             // SearchPesquisaEstadoComboBox
             // 
             this.SearchPesquisaEstadoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -549,53 +639,12 @@
             this.SearchPesquisaEstadoComboBox.Size = new System.Drawing.Size(121, 21);
             this.SearchPesquisaEstadoComboBox.TabIndex = 5;
             // 
-            // label10
+            // ProjetoNomeTextBox
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(395, 197);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(64, 20);
-            this.label10.TabIndex = 6;
-            this.label10.Text = "Estado:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(395, 138);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(240, 20);
-            this.label11.TabIndex = 7;
-            this.label11.Text = "Pesquisar Equipa por estado";
-            // 
-            // SearchEquipaEstadolistBox
-            // 
-            this.SearchEquipaEstadolistBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchEquipaEstadolistBox.FormattingEnabled = true;
-            this.SearchEquipaEstadolistBox.ItemHeight = 18;
-            this.SearchEquipaEstadolistBox.Location = new System.Drawing.Point(174, 323);
-            this.SearchEquipaEstadolistBox.Name = "SearchEquipaEstadolistBox";
-            this.SearchEquipaEstadolistBox.Size = new System.Drawing.Size(701, 238);
-            this.SearchEquipaEstadolistBox.TabIndex = 8;
-            // 
-            // SearchEquipaButton
-            // 
-            this.SearchEquipaButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchEquipaButton.Location = new System.Drawing.Point(395, 243);
-            this.SearchEquipaButton.Name = "SearchEquipaButton";
-            this.SearchEquipaButton.Size = new System.Drawing.Size(96, 41);
-            this.SearchEquipaButton.TabIndex = 9;
-            this.SearchEquipaButton.Text = "Pesquisar";
-            this.SearchEquipaButton.UseVisualStyleBackColor = true;
-            this.SearchEquipaButton.Click += new System.EventHandler(this.SearchEquipaButton_Click);
-            // 
-            // porEstadoToolStripMenuItem
-            // 
-            this.porEstadoToolStripMenuItem.Name = "porEstadoToolStripMenuItem";
-            this.porEstadoToolStripMenuItem.Size = new System.Drawing.Size(290, 26);
-            this.porEstadoToolStripMenuItem.Text = "Pesquisa por Disponibilidade";
-            this.porEstadoToolStripMenuItem.Click += new System.EventHandler(this.porEstadoToolStripMenuItem_Click);
+            this.ProjetoNomeTextBox.Location = new System.Drawing.Point(463, 203);
+            this.ProjetoNomeTextBox.Name = "ProjetoNomeTextBox";
+            this.ProjetoNomeTextBox.Size = new System.Drawing.Size(200, 20);
+            this.ProjetoNomeTextBox.TabIndex = 3;
             // 
             // MainPainel
             // 
@@ -604,12 +653,12 @@
             this.ClientSize = new System.Drawing.Size(1055, 650);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.SearchEquipaEstadoPanel);
-            this.Controls.Add(this.HomePainel);
             this.Controls.Add(this.InsertProjetoPainel);
             this.Controls.Add(this.SearchColabBasicaPainel);
             this.Controls.Add(this.AlterColabPainel);
             this.Controls.Add(this.InsertColabPainel);
+            this.Controls.Add(this.SearchEquipaEstadoPanel);
+            this.Controls.Add(this.HomePainel);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainPainel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -666,9 +715,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox ProjetoNomeTextBox;
-        private System.Windows.Forms.TextBox DataIniTextBox;
-        private System.Windows.Forms.TextBox DataFimTextBox;
         private System.Windows.Forms.ToolStripMenuItem projetoToolStripMenuItem;
         private System.Windows.Forms.Panel AlterColabPainel;
         private System.Windows.Forms.Label label9;
@@ -687,5 +733,12 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox SearchPesquisaEstadoComboBox;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox InsEmailTextBox;
+        private System.Windows.Forms.DateTimePicker InsDataNascPicker;
+        private System.Windows.Forms.DateTimePicker InsProjDataFimPicker;
+        private System.Windows.Forms.DateTimePicker InsProjDataIniPicker;
+        private System.Windows.Forms.TextBox ProjetoNomeTextBox;
     }
 }

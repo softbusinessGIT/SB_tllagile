@@ -12,30 +12,33 @@ namespace SB_tllagile
         //metodos set & get
         public string id_colab { get; set; }
         public string nome { get; set; }
-        public string disponibilidade { get; set; }
-        
+        public string estado { get; set; }
+        public string data_nascimento { get; set; }
+        public string email { get; set; }
+        public string data_inscricao { get; set; }
 
+        
         //metodo que retorna informação de um objeto Colaborador
         public string dadosPesquisaBasica
         {
             get
             {
-                String estado;
+                String estadoString;
                 // exemplo: Alexandre, A1, 912121772, (1)
                 //$"{nome}, {codigo}, {telefone}, ({estado})";
-                if (disponibilidade.Equals("True"))
+                if (this.estado.Equals("True"))
                 {
-                    estado = "Disponivel";
+                    estadoString = "Disponivel";
                 }
                 else
                 {
-                    estado = "Indisponivel";
+                    estadoString = "Indisponivel";
                 }
                 String id_colab_retorno = id_colab.PadRight(25 - id_colab.Length) +"\t\t";
                 String nome_retorno = nome.PadRight(25 - nome.Length)+"\t\t";
 
 
-                return $"{id_colab_retorno}|{nome_retorno}|{estado}";
+                return $"{id_colab_retorno}|{nome_retorno}|{estadoString}";
             }
         }
 

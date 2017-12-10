@@ -11,13 +11,13 @@ namespace SB_tllagile
     // Classe com as funções de pesquisa, edição e inserção na BD
     class DataAccess
     {
-        //Método pequisa na base de dados todos os colaboradores por estado/disponibilidade
-        public List<Colaborador> getPessoa(int disponibilidade)
+        //Método pequisa na base de dados todos os colaboradores por estado/estado
+        public List<Colaborador> getPessoa(int estado)
         {
             //using faz a ligação a BD e no fim dá KILL ao processo, para evitar loops e inconsistências
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper_db.conVal("tllagileDB")))
             {
-                var output = connection.Query<Colaborador>($" select * from colaborador where disponibilidade = '{disponibilidade}'").ToList();
+                var output = connection.Query<Colaborador>($" select * from colaborador where estado = '{estado}'").ToList();
                 //var output = connection.Query<Colaborador>("dbo.Nome_Procedure @disponibiidade", new {disponibiidade = disponibiidade}).ToList();
                 return output;
             }
@@ -37,28 +37,28 @@ namespace SB_tllagile
 
         }
         //Método que insere na base de dados um colaborador
-        public void insertColabBd(String nomeIn, String disponibilidadeIn)
+        public void insertColabBd(String nomeIn, String estadoIn, String data_inscricaoIn, String data_nascimentoIn, String emailIn)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper_db.conVal("tllagileDB")))
             {
                 List<Colaborador> listaColab = new List<Colaborador>();
-                listaColab.Add(new Colaborador { nome = nomeIn, disponibilidade = disponibilidadeIn });
+                listaColab.Add(new Colaborador { nome = nomeIn, estado = estadoIn, data_inscricao = data_inscricaoIn, data_nascimento = data_nascimentoIn, email = emailIn });
 
-                connection.Execute($"insert into colaborador(nome,disponibilidade) values(@nome, @disponibilidade)", listaColab);
+                connection.Execute($"insert into colaborador(nome,estado) values(@nome, @estado)", listaColab);
                 //var output = connection.Query<Colaborador>("dbo.Nome_Procedure @estado", new {estado = estado}).ToList();
                 //return outputQueryUserBd;
             }
 
         }
-        //Método que Altera (Update) o estado/disponibilidade de um colaborador
-        public void alterColabBd(String id_colabIn, String disponibilidadeIn)
+        //Método que Altera (Update) o estado/estado de um colaborador
+        public void alterColabBd(String id_colabIn, String estadoIn)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper_db.conVal("tllagileDB")))
             {
                 List<Colaborador> listaColab = new List<Colaborador>();
-                listaColab.Add(new Colaborador { id_colab = id_colabIn, disponibilidade = disponibilidadeIn });
+                listaColab.Add(new Colaborador { id_colab = id_colabIn, estado = estadoIn });
 
-                connection.Execute($"UPDATE colaborador SET disponibilidade = @disponibilidade WHERE id_colab = @id_colab", listaColab);
+                connection.Execute($"UPDATE colaborador SET estado = @estado WHERE id_colab = @id_colab", listaColab);
                 //var output = connection.Query<Colaborador>("dbo.Nome_Procedure @estado", new {estado = estado}).ToList();
                 //return outputQueryUserBd;
             }

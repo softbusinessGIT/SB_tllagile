@@ -23,18 +23,17 @@ namespace SB_tllagile
             InitializeComponent();
             //SearchColabBasicaPainel.BackColor = Color.LightGray;
             //menuStrip1.ForeColor = Color.White; //coloca a letra do menu a branco
+
             atualizarListBox();
 
             HomeWebsiteButton.FlatAppearance.BorderSize = 0;
             HomeWebsiteButton.FlatAppearance.BorderColor = Color.White;
 
-
+            //Elemento pre-definido da combobox
             comboBoxBasica.SelectedIndex = 0;
             InsComboBox.SelectedIndex = 0;
             SearchPesquisaEstadoComboBox.SelectedIndex = 0;
 
-            DataIniTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
-            DataFimTextBox.Text = DateTime.Now.AddMonths(3).ToString("yyyy-MM-dd");
         }
         //Métodos 
 
@@ -80,26 +79,31 @@ namespace SB_tllagile
 
         private void InsButton_Click(object sender, EventArgs e)
         {
+            //Data de nascimento do colaborador
+            String dataNascimento = InsDataNascPicker.Value.ToString("yyyy-MM-dd");
 
             //DataAccess db = new DataAccess(); //cria o objeto db
-            if (InsNomeTextBox.Text.Equals("")) //se os campos forem vazios apresenta uma janela de erro
+            if (InsNomeTextBox.Text.Equals("") || InsEmailTextBox.Equals(""))  //se os campos forem vazios apresenta uma janela de erro
             {
                 DialogResult dialogCamposIns = MessageBox.Show("Campos vazios, Preencha todos campos e tente novamente",
                "Erro - Campos vazios", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else // se não faz a query a BD
+            else // se não, faz a query a BD
             {
                 if (InsComboBox.Text.Equals("Disponivel"))
                 {
-                    db.insertColabBd(InsNomeTextBox.Text, "1");
+                    db.insertColabBd(InsNomeTextBox.Text, "1", DateTime.Now.ToString("yyyy-MM-dd"), dataNascimento, InsEmailTextBox.Text);
                 }
                 else
                 {
-                    db.insertColabBd(InsNomeTextBox.Text, "0");
+                    db.insertColabBd(InsNomeTextBox.Text, "0", DateTime.Now.ToString("yyyy-MM-dd"), dataNascimento, InsEmailTextBox.Text);
                 }
                 DialogResult dialogConfirmar = MessageBox.Show("Inserção realizada com sucesso",
                "Inserir - Colaboradores", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                //Coloca os campos vazios para uma possivel nova inserção
                 InsNomeTextBox.Text = "";
+                InsEmailTextBox.Text = "";
             }
         }
 
@@ -118,26 +122,26 @@ namespace SB_tllagile
         {
             //DataAccess db = new DataAccess(); //cria o objeto db
 
-            if (ProjetoNomeTextBox.Text.Equals("") || DataIniTextBox.Text.Equals("") || DataFimTextBox.Text.Equals(""))
+            if (ProjetoNomeTextBox.Text.Equals(""))
             {
                 DialogResult dialogCamposIns = MessageBox.Show("Campos vazios, Preencha todos campos e tente novamente",
                "Erro - Campos vazios", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
-            {
-                //converte a Strings das TextBox em DateTime
-                DateTime dataInicio = Convert.ToDateTime(DataIniTextBox.Text);
-                DateTime dataFim = Convert.ToDateTime(DataFimTextBox.Text);
+            {     
 
-                if (dataInicio.CompareTo(dataFim) <= 0)
+                //String dataIniProj = InsProjDataIniPicker.Value.ToString("yyyy-MM-dd");
+                //String dataFimProj = InsProjDataFimPicker.Value.ToString("yyyy-MM-dd");
+
+
+                if (InsProjDataIniPicker.Value.CompareTo(InsProjDataFimPicker.Value) <= 0)
                 {
-                    db.InsertProjetoBd(ProjetoNomeTextBox.Text, dataInicio, dataFim);
+                    db.InsertProjetoBd(ProjetoNomeTextBox.Text, InsProjDataIniPicker.Value, InsProjDataFimPicker.Value);
 
                     DialogResult dialogConfirmar = MessageBox.Show("Inserção realizada com sucesso",
                    "Inserir - Projetos", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    DataIniTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd"); //coloca na textBox a data de hoje
-                    DataFimTextBox.Text = DateTime.Now.AddMonths(3).ToString("yyyy-MM-dd");
+                    //Coloca o campo vazio para uma possivel nova inserção
                     ProjetoNomeTextBox.Text = "";
                 }
                 else
