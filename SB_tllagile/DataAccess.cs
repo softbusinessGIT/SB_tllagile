@@ -24,6 +24,28 @@ namespace SB_tllagile
             //throw new NotImplementedException();
 
         }
+        //Método pequisa na base de dados um colavorador
+        public List<Colaborador> getColaborador(String idIn)
+        {
+            //using faz a ligação a BD e no fim dá KILL ao processo, para evitar loops e inconsistências
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper_db.conVal("tllagileDB")))
+            {
+                var output = connection.Query<Colaborador>($" select * from colaborador where id_colab = '{idIn}'").ToList();
+                //var output = connection.Query<Colaborador>("dbo.Nome_Procedure @disponibiidade", new {disponibiidade = disponibiidade}).ToList();
+                return output;
+            }
+        }
+        //Método pequisa na base de dados um colaborador
+        public List<Indisponibilidade> getIndispColaborador(String idIn)
+        {
+            //using faz a ligação a BD e no fim dá KILL ao processo, para evitar loops e inconsistências
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper_db.conVal("tllagileDB")))
+            {
+                var output = connection.Query<Indisponibilidade>($" select * from indisponibilidade where id_colab = '{idIn}'").ToList();
+                //var output = connection.Query<Colaborador>("dbo.Nome_Procedure @disponibiidade", new {disponibiidade = disponibiidade}).ToList();
+                return output;
+            }  
+        }
         //Método que pequisa na base de dados todos os colaboradores
         public List<Colaborador> getTodosColab()
         {
@@ -33,20 +55,31 @@ namespace SB_tllagile
                 var output = connection.Query<Colaborador>($" select * from colaborador").ToList();
                 return output;
             }
-            //throw new NotImplementedException();
 
         }
         //Método que insere na base de dados um colaborador
-        public void insertColabBd(String nomeIn, String estadoIn, String data_inscricaoIn, String data_nascimentoIn, String emailIn)
+        public void insertColabBd(String nomeIn, String estadoIn, DateTime data_inscricaoIn, DateTime data_nascimentoIn, String emailIn)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper_db.conVal("tllagileDB")))
             {
                 List<Colaborador> listaColab = new List<Colaborador>();
                 listaColab.Add(new Colaborador { nome = nomeIn, estado = estadoIn, data_inscricao = data_inscricaoIn, data_nascimento = data_nascimentoIn, email = emailIn });
 
-                connection.Execute($"insert into colaborador(nome,estado) values(@nome, @estado)", listaColab);
+                connection.Execute($"insert into colaborador(nome,estado,data_inscricao,data_nascimento,email ) values(@nome, @estado,@data_inscricao,@data_nascimento,@email)", listaColab);
                 //var output = connection.Query<Colaborador>("dbo.Nome_Procedure @estado", new {estado = estado}).ToList();
                 //return outputQueryUserBd;
+            }
+
+        }
+        //Método que insere na base de dados uma indisponibilidade de um certo colaborador
+        public void insertIndispColabBd(String id_colabIn, DateTime data_ndisp_inicioIn, DateTime data_ndisp_fimIn, String motivoIn)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper_db.conVal("tllagileDB")))
+            {
+                List<Indisponibilidade> listaIndispColab = new List<Indisponibilidade>();
+                listaIndispColab.Add(new Indisponibilidade {id_colab = id_colabIn, data_ndisp_inicio = data_ndisp_inicioIn, data_ndisp_fim = data_ndisp_fimIn, motivo = motivoIn});
+
+                connection.Execute($"insert into indisponibilidade(id_colab,data_ndisp_inicio,data_ndisp_fim,motivo) values(@id_colab, @data_ndisp_inicio,@data_ndisp_fim,@motivo)", listaIndispColab);
             }
 
         }
@@ -93,7 +126,7 @@ namespace SB_tllagile
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper_db.conVal("tllagileDB")))
             {
-                var outputQueryBd = connection.Query<Equipa>($" select distinct E.nome, P.nome as nomeProj, E.estado from equipa E, colaborador C, projeto P, funcao F where estado = '{estadoIn}'and E.id_projeto = P.id_projeto").ToList();
+                var outputQueryBd = connection.Query<Equipa>($" select distinct E.nome, P.nome as nomeProj, E.estado from equipa E, colaborador C, projeto P, funcao F where E.estado = '{estadoIn}'and E.id_projeto = P.id_projeto").ToList();
                 //var output = connection.Query<Colaborador>("dbo.Nome_Procedure @estado", new {estado = estado}).ToList();
                 return outputQueryBd;
 

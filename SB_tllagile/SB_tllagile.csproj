@@ -59,6 +59,7 @@
     <Compile Include="DataAccess.cs" />
     <Compile Include="Equipa.cs" />
     <Compile Include="Helper_db.cs" />
+    <Compile Include="Indisponibilidade.cs" />
     <Compile Include="MainPainel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +72,12 @@
     <Compile Include="PainelLogin.Designer.cs">
       <DependentUpon>PainelLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="PerfilColaborador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PerfilColaborador.Designer.cs">
+      <DependentUpon>PerfilColaborador.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Projeto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -80,6 +87,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PainelLogin.resx">
       <DependentUpon>PainelLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PerfilColaborador.resx">
+      <DependentUpon>PerfilColaborador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

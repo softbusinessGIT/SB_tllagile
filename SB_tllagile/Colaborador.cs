@@ -13,9 +13,9 @@ namespace SB_tllagile
         public string id_colab { get; set; }
         public string nome { get; set; }
         public string estado { get; set; }
-        public string data_nascimento { get; set; }
+        public DateTime data_nascimento { get; set; }
         public string email { get; set; }
-        public string data_inscricao { get; set; }
+        public DateTime data_inscricao { get; set; }
 
         
         //metodo que retorna informação de um objeto Colaborador
@@ -39,6 +39,22 @@ namespace SB_tllagile
 
 
                 return $"{id_colab_retorno}|{nome_retorno}|{estadoString}";
+            }
+        }
+        public string dadosPesquisaColabAtivos
+        {
+            get
+            {
+                
+                // exemplo: Alexandre, A1, 912121772, (1)
+                //$"{nome}, {codigo}, {telefone}, ({estado})";
+ 
+                String id_colab_retorno = id_colab.PadRight(25 - id_colab.Length) + "\t\t";
+                String nome_retorno = nome.PadRight(25 - nome.Length) + "\t\t";
+                String email_retorno = email.PadRight(25 - nome.Length) + "\t\t";
+
+
+                return $"{id_colab_retorno}|{nome_retorno}|{email_retorno}";
             }
         }
 

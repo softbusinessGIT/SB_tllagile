@@ -34,6 +34,7 @@
             this.visualizarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.colaboradoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.avançadaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.perfilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.básicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.equipaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.porEstadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,6 +44,8 @@
             this.projetoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alterarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.colaboradorToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.estadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.disponibilidadeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.InsertProjetoPainel = new System.Windows.Forms.Panel();
             this.InsProjDataFimPicker = new System.Windows.Forms.DateTimePicker();
             this.InsProjDataIniPicker = new System.Windows.Forms.DateTimePicker();
@@ -50,6 +53,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.ProjetoNomeTextBox = new System.Windows.Forms.TextBox();
             this.InsertColabPainel = new System.Windows.Forms.Panel();
             this.InsDataNascPicker = new System.Windows.Forms.DateTimePicker();
             this.label13 = new System.Windows.Forms.Label();
@@ -62,14 +66,21 @@
             this.InsButton = new System.Windows.Forms.Button();
             this.InsNomeLabel = new System.Windows.Forms.Label();
             this.SearchColabBasicaPainel = new System.Windows.Forms.Panel();
+            this.listViewSearchColab = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.PesquisarBasicaButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBoxBasica = new System.Windows.Forms.ComboBox();
-            this.listBoxColab = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.AlterColabPainel = new System.Windows.Forms.Panel();
-            this.AlterColabListBox = new System.Windows.Forms.ListBox();
+            this.listViewAlterColab = new System.Windows.Forms.ListView();
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.AlterColabAplicarButton = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -77,12 +88,34 @@
             this.HomeWebsiteButton = new System.Windows.Forms.Button();
             this.HomeLabel = new System.Windows.Forms.Label();
             this.SearchEquipaEstadoPanel = new System.Windows.Forms.Panel();
+            this.listViewSearchEquipaEstado = new System.Windows.Forms.ListView();
+            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SearchEquipaButton = new System.Windows.Forms.Button();
-            this.SearchEquipaEstadolistBox = new System.Windows.Forms.ListBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.SearchPesquisaEstadoComboBox = new System.Windows.Forms.ComboBox();
-            this.ProjetoNomeTextBox = new System.Windows.Forms.TextBox();
+            this.AlterDispColabPainel = new System.Windows.Forms.Panel();
+            this.AlterDispColabListView = new System.Windows.Forms.ListView();
+            this.id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Nome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label17 = new System.Windows.Forms.Label();
+            this.AlterDispColabButton = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.AlterDispColabMotivoTextBox = new System.Windows.Forms.TextBox();
+            this.AlterColabFimDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.AlterColabIniDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.SearchColabPerfilPainel = new System.Windows.Forms.Panel();
+            this.VisualizarPerfilButton = new System.Windows.Forms.Button();
+            this.label18 = new System.Windows.Forms.Label();
+            this.listViewPerfilColab = new System.Windows.Forms.ListView();
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip1.SuspendLayout();
             this.InsertProjetoPainel.SuspendLayout();
             this.InsertColabPainel.SuspendLayout();
@@ -91,6 +124,8 @@
             this.AlterColabPainel.SuspendLayout();
             this.HomePainel.SuspendLayout();
             this.SearchEquipaEstadoPanel.SuspendLayout();
+            this.AlterDispColabPainel.SuspendLayout();
+            this.SearchColabPerfilPainel.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -146,9 +181,18 @@
             // 
             // avançadaToolStripMenuItem
             // 
+            this.avançadaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.perfilToolStripMenuItem});
             this.avançadaToolStripMenuItem.Name = "avançadaToolStripMenuItem";
             this.avançadaToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.avançadaToolStripMenuItem.Text = "Pesquisa Avançada";
+            // 
+            // perfilToolStripMenuItem
+            // 
+            this.perfilToolStripMenuItem.Name = "perfilToolStripMenuItem";
+            this.perfilToolStripMenuItem.Size = new System.Drawing.Size(117, 26);
+            this.perfilToolStripMenuItem.Text = "Perfil";
+            this.perfilToolStripMenuItem.Click += new System.EventHandler(this.perfilToolStripMenuItem_Click);
             // 
             // básicaToolStripMenuItem
             // 
@@ -212,10 +256,27 @@
             // 
             // colaboradorToolStripMenuItem1
             // 
+            this.colaboradorToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.estadoToolStripMenuItem,
+            this.disponibilidadeToolStripMenuItem});
             this.colaboradorToolStripMenuItem1.Name = "colaboradorToolStripMenuItem1";
             this.colaboradorToolStripMenuItem1.Size = new System.Drawing.Size(172, 26);
             this.colaboradorToolStripMenuItem1.Text = "Colaborador";
             this.colaboradorToolStripMenuItem1.Click += new System.EventHandler(this.colaboradorToolStripMenuItem1_Click);
+            // 
+            // estadoToolStripMenuItem
+            // 
+            this.estadoToolStripMenuItem.Name = "estadoToolStripMenuItem";
+            this.estadoToolStripMenuItem.Size = new System.Drawing.Size(194, 26);
+            this.estadoToolStripMenuItem.Text = "Estado";
+            this.estadoToolStripMenuItem.Click += new System.EventHandler(this.estadoToolStripMenuItem_Click);
+            // 
+            // disponibilidadeToolStripMenuItem
+            // 
+            this.disponibilidadeToolStripMenuItem.Name = "disponibilidadeToolStripMenuItem";
+            this.disponibilidadeToolStripMenuItem.Size = new System.Drawing.Size(194, 26);
+            this.disponibilidadeToolStripMenuItem.Text = "Disponibilidade";
+            this.disponibilidadeToolStripMenuItem.Click += new System.EventHandler(this.disponibilidadeToolStripMenuItem_Click);
             // 
             // InsertProjetoPainel
             // 
@@ -290,6 +351,13 @@
             this.label5.Size = new System.Drawing.Size(59, 20);
             this.label5.TabIndex = 4;
             this.label5.Text = "Nome: ";
+            // 
+            // ProjetoNomeTextBox
+            // 
+            this.ProjetoNomeTextBox.Location = new System.Drawing.Point(463, 203);
+            this.ProjetoNomeTextBox.Name = "ProjetoNomeTextBox";
+            this.ProjetoNomeTextBox.Size = new System.Drawing.Size(200, 20);
+            this.ProjetoNomeTextBox.TabIndex = 3;
             // 
             // InsertColabPainel
             // 
@@ -407,16 +475,53 @@
             // SearchColabBasicaPainel
             // 
             this.SearchColabBasicaPainel.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.SearchColabBasicaPainel.Controls.Add(this.listViewSearchColab);
             this.SearchColabBasicaPainel.Controls.Add(this.PesquisarBasicaButton);
             this.SearchColabBasicaPainel.Controls.Add(this.label4);
             this.SearchColabBasicaPainel.Controls.Add(this.comboBoxBasica);
-            this.SearchColabBasicaPainel.Controls.Add(this.listBoxColab);
             this.SearchColabBasicaPainel.Controls.Add(this.label3);
             this.SearchColabBasicaPainel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SearchColabBasicaPainel.Location = new System.Drawing.Point(0, 0);
             this.SearchColabBasicaPainel.Name = "SearchColabBasicaPainel";
             this.SearchColabBasicaPainel.Size = new System.Drawing.Size(1055, 650);
             this.SearchColabBasicaPainel.TabIndex = 3;
+            // 
+            // listViewSearchColab
+            // 
+            this.listViewSearchColab.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader4,
+            this.columnHeader5});
+            this.listViewSearchColab.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listViewSearchColab.FullRowSelect = true;
+            this.listViewSearchColab.GridLines = true;
+            this.listViewSearchColab.Location = new System.Drawing.Point(174, 296);
+            this.listViewSearchColab.Name = "listViewSearchColab";
+            this.listViewSearchColab.Size = new System.Drawing.Size(701, 254);
+            this.listViewSearchColab.TabIndex = 11;
+            this.listViewSearchColab.UseCompatibleStateImageBehavior = false;
+            this.listViewSearchColab.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Identificador";
+            this.columnHeader1.Width = 101;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Nome";
+            this.columnHeader2.Width = 303;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Estado";
+            this.columnHeader4.Width = 99;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Email";
+            this.columnHeader5.Width = 232;
             // 
             // PesquisarBasicaButton
             // 
@@ -452,16 +557,6 @@
             this.comboBoxBasica.Size = new System.Drawing.Size(121, 21);
             this.comboBoxBasica.TabIndex = 4;
             // 
-            // listBoxColab
-            // 
-            this.listBoxColab.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBoxColab.FormattingEnabled = true;
-            this.listBoxColab.ItemHeight = 18;
-            this.listBoxColab.Location = new System.Drawing.Point(174, 323);
-            this.listBoxColab.Name = "listBoxColab";
-            this.listBoxColab.Size = new System.Drawing.Size(701, 94);
-            this.listBoxColab.TabIndex = 3;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -485,7 +580,7 @@
             // AlterColabPainel
             // 
             this.AlterColabPainel.BackColor = System.Drawing.Color.White;
-            this.AlterColabPainel.Controls.Add(this.AlterColabListBox);
+            this.AlterColabPainel.Controls.Add(this.listViewAlterColab);
             this.AlterColabPainel.Controls.Add(this.AlterColabAplicarButton);
             this.AlterColabPainel.Controls.Add(this.label9);
             this.AlterColabPainel.Controls.Add(this.label8);
@@ -496,15 +591,36 @@
             this.AlterColabPainel.TabIndex = 8;
             this.AlterColabPainel.Paint += new System.Windows.Forms.PaintEventHandler(this.AlterColabPainel_Paint);
             // 
-            // AlterColabListBox
+            // listViewAlterColab
             // 
-            this.AlterColabListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AlterColabListBox.FormattingEnabled = true;
-            this.AlterColabListBox.ItemHeight = 20;
-            this.AlterColabListBox.Location = new System.Drawing.Point(183, 243);
-            this.AlterColabListBox.Name = "AlterColabListBox";
-            this.AlterColabListBox.Size = new System.Drawing.Size(692, 204);
-            this.AlterColabListBox.TabIndex = 14;
+            this.listViewAlterColab.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader9,
+            this.columnHeader10,
+            this.columnHeader11});
+            this.listViewAlterColab.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listViewAlterColab.FullRowSelect = true;
+            this.listViewAlterColab.GridLines = true;
+            this.listViewAlterColab.Location = new System.Drawing.Point(183, 243);
+            this.listViewAlterColab.Name = "listViewAlterColab";
+            this.listViewAlterColab.Size = new System.Drawing.Size(668, 220);
+            this.listViewAlterColab.TabIndex = 15;
+            this.listViewAlterColab.UseCompatibleStateImageBehavior = false;
+            this.listViewAlterColab.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "Identificador";
+            this.columnHeader9.Width = 101;
+            // 
+            // columnHeader10
+            // 
+            this.columnHeader10.Text = "Nome";
+            this.columnHeader10.Width = 303;
+            // 
+            // columnHeader11
+            // 
+            this.columnHeader11.Text = "Email";
+            this.columnHeader11.Width = 260;
             // 
             // AlterColabAplicarButton
             // 
@@ -574,8 +690,8 @@
             // SearchEquipaEstadoPanel
             // 
             this.SearchEquipaEstadoPanel.BackColor = System.Drawing.Color.White;
+            this.SearchEquipaEstadoPanel.Controls.Add(this.listViewSearchEquipaEstado);
             this.SearchEquipaEstadoPanel.Controls.Add(this.SearchEquipaButton);
-            this.SearchEquipaEstadoPanel.Controls.Add(this.SearchEquipaEstadolistBox);
             this.SearchEquipaEstadoPanel.Controls.Add(this.label11);
             this.SearchEquipaEstadoPanel.Controls.Add(this.label10);
             this.SearchEquipaEstadoPanel.Controls.Add(this.SearchPesquisaEstadoComboBox);
@@ -584,6 +700,37 @@
             this.SearchEquipaEstadoPanel.Name = "SearchEquipaEstadoPanel";
             this.SearchEquipaEstadoPanel.Size = new System.Drawing.Size(1055, 650);
             this.SearchEquipaEstadoPanel.TabIndex = 5;
+            // 
+            // listViewSearchEquipaEstado
+            // 
+            this.listViewSearchEquipaEstado.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader12,
+            this.columnHeader13,
+            this.columnHeader14});
+            this.listViewSearchEquipaEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listViewSearchEquipaEstado.FullRowSelect = true;
+            this.listViewSearchEquipaEstado.GridLines = true;
+            this.listViewSearchEquipaEstado.Location = new System.Drawing.Point(272, 296);
+            this.listViewSearchEquipaEstado.Name = "listViewSearchEquipaEstado";
+            this.listViewSearchEquipaEstado.Size = new System.Drawing.Size(603, 254);
+            this.listViewSearchEquipaEstado.TabIndex = 11;
+            this.listViewSearchEquipaEstado.UseCompatibleStateImageBehavior = false;
+            this.listViewSearchEquipaEstado.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader12
+            // 
+            this.columnHeader12.Text = "Nome da Equipa";
+            this.columnHeader12.Width = 182;
+            // 
+            // columnHeader13
+            // 
+            this.columnHeader13.Text = "Nome do Projeto";
+            this.columnHeader13.Width = 257;
+            // 
+            // columnHeader14
+            // 
+            this.columnHeader14.Text = "Estado";
+            this.columnHeader14.Width = 171;
             // 
             // SearchEquipaButton
             // 
@@ -595,16 +742,6 @@
             this.SearchEquipaButton.Text = "Pesquisar";
             this.SearchEquipaButton.UseVisualStyleBackColor = true;
             this.SearchEquipaButton.Click += new System.EventHandler(this.SearchEquipaButton_Click);
-            // 
-            // SearchEquipaEstadolistBox
-            // 
-            this.SearchEquipaEstadolistBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchEquipaEstadolistBox.FormattingEnabled = true;
-            this.SearchEquipaEstadolistBox.ItemHeight = 18;
-            this.SearchEquipaEstadolistBox.Location = new System.Drawing.Point(174, 323);
-            this.SearchEquipaEstadolistBox.Name = "SearchEquipaEstadolistBox";
-            this.SearchEquipaEstadolistBox.Size = new System.Drawing.Size(701, 238);
-            this.SearchEquipaEstadolistBox.TabIndex = 8;
             // 
             // label11
             // 
@@ -639,12 +776,193 @@
             this.SearchPesquisaEstadoComboBox.Size = new System.Drawing.Size(121, 21);
             this.SearchPesquisaEstadoComboBox.TabIndex = 5;
             // 
-            // ProjetoNomeTextBox
+            // AlterDispColabPainel
             // 
-            this.ProjetoNomeTextBox.Location = new System.Drawing.Point(463, 203);
-            this.ProjetoNomeTextBox.Name = "ProjetoNomeTextBox";
-            this.ProjetoNomeTextBox.Size = new System.Drawing.Size(200, 20);
-            this.ProjetoNomeTextBox.TabIndex = 3;
+            this.AlterDispColabPainel.BackColor = System.Drawing.Color.White;
+            this.AlterDispColabPainel.Controls.Add(this.AlterDispColabListView);
+            this.AlterDispColabPainel.Controls.Add(this.label17);
+            this.AlterDispColabPainel.Controls.Add(this.AlterDispColabButton);
+            this.AlterDispColabPainel.Controls.Add(this.label16);
+            this.AlterDispColabPainel.Controls.Add(this.label15);
+            this.AlterDispColabPainel.Controls.Add(this.label14);
+            this.AlterDispColabPainel.Controls.Add(this.AlterDispColabMotivoTextBox);
+            this.AlterDispColabPainel.Controls.Add(this.AlterColabFimDateTimePicker);
+            this.AlterDispColabPainel.Controls.Add(this.AlterColabIniDateTimePicker);
+            this.AlterDispColabPainel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AlterDispColabPainel.Location = new System.Drawing.Point(0, 0);
+            this.AlterDispColabPainel.Name = "AlterDispColabPainel";
+            this.AlterDispColabPainel.Size = new System.Drawing.Size(1055, 650);
+            this.AlterDispColabPainel.TabIndex = 5;
+            this.AlterDispColabPainel.Paint += new System.Windows.Forms.PaintEventHandler(this.AlterDispColabPainel_Paint);
+            // 
+            // AlterDispColabListView
+            // 
+            this.AlterDispColabListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.id,
+            this.Nome,
+            this.columnHeader3});
+            this.AlterDispColabListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AlterDispColabListView.FullRowSelect = true;
+            this.AlterDispColabListView.GridLines = true;
+            this.AlterDispColabListView.Location = new System.Drawing.Point(240, 296);
+            this.AlterDispColabListView.Name = "AlterDispColabListView";
+            this.AlterDispColabListView.Size = new System.Drawing.Size(611, 180);
+            this.AlterDispColabListView.TabIndex = 10;
+            this.AlterDispColabListView.UseCompatibleStateImageBehavior = false;
+            this.AlterDispColabListView.View = System.Windows.Forms.View.Details;
+            // 
+            // id
+            // 
+            this.id.Text = "Identificador";
+            this.id.Width = 101;
+            // 
+            // Nome
+            // 
+            this.Nome.Text = "Nome";
+            this.Nome.Width = 303;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Email";
+            this.columnHeader3.Width = 99;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(363, 131);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(312, 20);
+            this.label17.TabIndex = 8;
+            this.label17.Text = "Editar Disponibilidade do Colaborador";
+            // 
+            // AlterDispColabButton
+            // 
+            this.AlterDispColabButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AlterDispColabButton.Location = new System.Drawing.Point(240, 482);
+            this.AlterDispColabButton.Name = "AlterDispColabButton";
+            this.AlterDispColabButton.Size = new System.Drawing.Size(95, 37);
+            this.AlterDispColabButton.TabIndex = 7;
+            this.AlterDispColabButton.Text = "Alterar";
+            this.AlterDispColabButton.UseVisualStyleBackColor = true;
+            this.AlterDispColabButton.Click += new System.EventHandler(this.AlterDispColabButton_Click);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(368, 256);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(63, 20);
+            this.label16.TabIndex = 5;
+            this.label16.Text = "Motivo: ";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(368, 225);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(73, 20);
+            this.label15.TabIndex = 4;
+            this.label15.Text = "Data fim:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(368, 192);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(87, 20);
+            this.label14.TabIndex = 3;
+            this.label14.Text = "Data inicio:";
+            // 
+            // AlterDispColabMotivoTextBox
+            // 
+            this.AlterDispColabMotivoTextBox.Location = new System.Drawing.Point(463, 258);
+            this.AlterDispColabMotivoTextBox.Name = "AlterDispColabMotivoTextBox";
+            this.AlterDispColabMotivoTextBox.Size = new System.Drawing.Size(201, 20);
+            this.AlterDispColabMotivoTextBox.TabIndex = 2;
+            // 
+            // AlterColabFimDateTimePicker
+            // 
+            this.AlterColabFimDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.AlterColabFimDateTimePicker.Location = new System.Drawing.Point(464, 227);
+            this.AlterColabFimDateTimePicker.Name = "AlterColabFimDateTimePicker";
+            this.AlterColabFimDateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.AlterColabFimDateTimePicker.TabIndex = 1;
+            // 
+            // AlterColabIniDateTimePicker
+            // 
+            this.AlterColabIniDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.AlterColabIniDateTimePicker.Location = new System.Drawing.Point(463, 194);
+            this.AlterColabIniDateTimePicker.Name = "AlterColabIniDateTimePicker";
+            this.AlterColabIniDateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.AlterColabIniDateTimePicker.TabIndex = 0;
+            // 
+            // SearchColabPerfilPainel
+            // 
+            this.SearchColabPerfilPainel.BackColor = System.Drawing.Color.White;
+            this.SearchColabPerfilPainel.Controls.Add(this.VisualizarPerfilButton);
+            this.SearchColabPerfilPainel.Controls.Add(this.label18);
+            this.SearchColabPerfilPainel.Controls.Add(this.listViewPerfilColab);
+            this.SearchColabPerfilPainel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SearchColabPerfilPainel.Location = new System.Drawing.Point(0, 0);
+            this.SearchColabPerfilPainel.Name = "SearchColabPerfilPainel";
+            this.SearchColabPerfilPainel.Size = new System.Drawing.Size(1055, 650);
+            this.SearchColabPerfilPainel.TabIndex = 5;
+            // 
+            // VisualizarPerfilButton
+            // 
+            this.VisualizarPerfilButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.VisualizarPerfilButton.Location = new System.Drawing.Point(207, 502);
+            this.VisualizarPerfilButton.Name = "VisualizarPerfilButton";
+            this.VisualizarPerfilButton.Size = new System.Drawing.Size(128, 48);
+            this.VisualizarPerfilButton.TabIndex = 13;
+            this.VisualizarPerfilButton.Text = "Visualizar Perfil";
+            this.VisualizarPerfilButton.UseVisualStyleBackColor = true;
+            this.VisualizarPerfilButton.Click += new System.EventHandler(this.VisualizarPerfilButton_Click);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(207, 158);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(237, 24);
+            this.label18.TabIndex = 12;
+            this.label18.Text = "Selecionar Colaborador ";
+            // 
+            // listViewPerfilColab
+            // 
+            this.listViewPerfilColab.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader6,
+            this.columnHeader7,
+            this.columnHeader8});
+            this.listViewPerfilColab.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listViewPerfilColab.FullRowSelect = true;
+            this.listViewPerfilColab.GridLines = true;
+            this.listViewPerfilColab.Location = new System.Drawing.Point(207, 192);
+            this.listViewPerfilColab.Name = "listViewPerfilColab";
+            this.listViewPerfilColab.Size = new System.Drawing.Size(635, 304);
+            this.listViewPerfilColab.TabIndex = 11;
+            this.listViewPerfilColab.UseCompatibleStateImageBehavior = false;
+            this.listViewPerfilColab.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Identificador";
+            this.columnHeader6.Width = 101;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Nome";
+            this.columnHeader7.Width = 303;
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "Email";
+            this.columnHeader8.Width = 226;
             // 
             // MainPainel
             // 
@@ -653,12 +971,14 @@
             this.ClientSize = new System.Drawing.Size(1055, 650);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.HomePainel);
             this.Controls.Add(this.InsertProjetoPainel);
             this.Controls.Add(this.SearchColabBasicaPainel);
             this.Controls.Add(this.AlterColabPainel);
             this.Controls.Add(this.InsertColabPainel);
             this.Controls.Add(this.SearchEquipaEstadoPanel);
-            this.Controls.Add(this.HomePainel);
+            this.Controls.Add(this.AlterDispColabPainel);
+            this.Controls.Add(this.SearchColabPerfilPainel);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainPainel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -678,6 +998,10 @@
             this.HomePainel.PerformLayout();
             this.SearchEquipaEstadoPanel.ResumeLayout(false);
             this.SearchEquipaEstadoPanel.PerformLayout();
+            this.AlterDispColabPainel.ResumeLayout(false);
+            this.AlterDispColabPainel.PerformLayout();
+            this.SearchColabPerfilPainel.ResumeLayout(false);
+            this.SearchColabPerfilPainel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -701,7 +1025,6 @@
         private System.Windows.Forms.ToolStripMenuItem equipaToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem colaboradorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem equipaToolStripMenuItem;
-        private System.Windows.Forms.ListBox listBoxColab;
         private System.Windows.Forms.ToolStripMenuItem avançadaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem básicaToolStripMenuItem;
         private System.Windows.Forms.Button PesquisarBasicaButton;
@@ -721,7 +1044,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button AlterColabAplicarButton;
         private System.Windows.Forms.ToolStripMenuItem colaboradorToolStripMenuItem1;
-        private System.Windows.Forms.ListBox AlterColabListBox;
         private System.Windows.Forms.ComboBox InsComboBox;
         private System.Windows.Forms.Panel HomePainel;
         private System.Windows.Forms.Label HomeLabel;
@@ -729,7 +1051,6 @@
         private System.Windows.Forms.ToolStripMenuItem porEstadoToolStripMenuItem;
         private System.Windows.Forms.Panel SearchEquipaEstadoPanel;
         private System.Windows.Forms.Button SearchEquipaButton;
-        private System.Windows.Forms.ListBox SearchEquipaEstadolistBox;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox SearchPesquisaEstadoComboBox;
@@ -740,5 +1061,41 @@
         private System.Windows.Forms.DateTimePicker InsProjDataFimPicker;
         private System.Windows.Forms.DateTimePicker InsProjDataIniPicker;
         private System.Windows.Forms.TextBox ProjetoNomeTextBox;
+        private System.Windows.Forms.ToolStripMenuItem perfilToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem estadoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem disponibilidadeToolStripMenuItem;
+        private System.Windows.Forms.Panel AlterDispColabPainel;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Button AlterDispColabButton;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox AlterDispColabMotivoTextBox;
+        private System.Windows.Forms.DateTimePicker AlterColabFimDateTimePicker;
+        private System.Windows.Forms.DateTimePicker AlterColabIniDateTimePicker;
+        private System.Windows.Forms.ListView AlterDispColabListView;
+        private System.Windows.Forms.ColumnHeader id;
+        private System.Windows.Forms.ColumnHeader Nome;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ListView listViewSearchColab;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.Panel SearchColabPerfilPainel;
+        private System.Windows.Forms.Button VisualizarPerfilButton;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.ListView listViewPerfilColab;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.ListView listViewAlterColab;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.ColumnHeader columnHeader10;
+        private System.Windows.Forms.ColumnHeader columnHeader11;
+        private System.Windows.Forms.ListView listViewSearchEquipaEstado;
+        private System.Windows.Forms.ColumnHeader columnHeader12;
+        private System.Windows.Forms.ColumnHeader columnHeader13;
+        private System.Windows.Forms.ColumnHeader columnHeader14;
     }
 }
