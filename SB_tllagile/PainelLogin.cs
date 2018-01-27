@@ -82,5 +82,11 @@ namespace SB_tllagile
             PassRecupText.Text = "";
             PassConfRecupText.Text = "";
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            RecupPanel.Visible = true;
+            LoginPanel.Visible = false;
+        }
     }
 }

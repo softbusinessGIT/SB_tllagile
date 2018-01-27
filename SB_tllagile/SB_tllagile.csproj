@@ -32,9 +32,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AHP">
+      <HintPath>..\libs\AHP.dll</HintPath>
+    </Reference>
     <Reference Include="Dapper, Version=1.50.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.1.50.4\lib\net451\Dapper.dll</HintPath>
     </Reference>
+    <Reference Include="GeneralMatrix">
+      <HintPath>..\libs\GeneralMatrix.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="SHA3, Version=0.9.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\SHA3.0.9.2\lib\net40\SHA3.dll</HintPath>
     </Reference>
@@ -44,6 +52,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,6 +64,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ahp.cs" />
     <Compile Include="Colaborador.cs" />
     <Compile Include="DataAccess.cs" />
     <Compile Include="Equipa.cs" />
