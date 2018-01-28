@@ -108,6 +108,19 @@ namespace SB_tllagile
             }
 
         }
+        //Método que Altera (Update) o estado/estado de um colaborador
+        public void alterUserPasswordBd(String username, String password)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper_db.conVal("tllagileDB")))
+            {
+                List<Utilizador> listaAlterUser = new List<Utilizador>();
+                listaAlterUser.Add(new Utilizador { username = username, password = password });
+
+                connection.Execute($"UPDATE utilizador SET password = @password WHERE username = @username", listaAlterUser);
+                //var output = connection.Query<Colaborador>("dbo.Nome_Procedure @estado", new {estado = estado}).ToList();
+                //return outputQueryUserBd;
+            }
+        }
         //Método que insere os projetos na base de dados
         public void InsertProjetoBd(String nomeIn, DateTime data_iniIn, DateTime data_fimIn)
         {

@@ -441,5 +441,214 @@ namespace SB_tllagile
             }
 
         }
+        //----------------------------------------------Criar Equipa-----------------------------------------------------------------
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            st.Visible = false;
+            sm.Visible = false;
+            po.Visible = true;
+
+            dataGridViewPo.Rows.Add("Communication Skill",1);
+            dataGridViewPo.Rows.Add("Knowledge of business models", 0, 1);
+            dataGridViewPo.Rows.Add("Knowledge of industry field",0,0,1);
+            dataGridViewPo.Rows.Add("Entrepeneur ability",0,0,0,1);
+            dataGridViewPo.Rows.Add("Financial knowledge", 0, 0, 0,0, 1);
+
+            foreach (DataGridViewColumn column in dataGridViewPo.Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+
+            
+
+            //DataGridViewRow row = (DataGridViewRow)dataGridViewPo.Rows[0].Clone();
+            //row.Cells[0].Value = "Communication Skill";
+            //row.Cells[1].Value = 50.2;
+            //dataGridViewPo.Rows.Add(row);
+
+            //DataGridViewRow row2 = (DataGridViewRow)dataGridViewPo.Rows[1];
+            //row.Cells[0].Value = "Knowledge of business models";
+            //dataGridViewPo.Rows.Add(row2);
+
+            //DataGridViewRow row3 = (DataGridViewRow)dataGridViewPo.Rows[2].Clone();
+            //row.Cells[0].Value = "Knowledge of industry field";
+            //dataGridViewPo.Rows.Add(row3);
+
+            //DataGridViewRow row4 = (DataGridViewRow)dataGridViewPo.Rows[3].Clone();
+            //row.Cells[0].Value = "Entrepeneur ability";
+            //dataGridViewPo.Rows.Add(row4);
+
+            //DataGridViewRow row5 = (DataGridViewRow)dataGridViewPo.Rows[4].Clone();
+            //row.Cells[0].Value = "Financial knowledge";
+            //dataGridViewPo.Rows.Add(row5);
+        }
+
+        //Método que converte frações de string para double ex: string "1/2" returns 0,5
+        double fractionToDouble(string fraction)
+        {
+            double result;
+
+            if (double.TryParse(fraction, out result))
+            {
+                return result;
+            }
+
+            string[] split = fraction.Split(new char[] { ' ', '/' });
+
+            if (split.Length == 2 || split.Length == 3)
+            {
+                int a, b;
+
+                if (int.TryParse(split[0], out a) && int.TryParse(split[1], out b))
+                {
+                    if (split.Length == 2)
+                    {
+                        return (double)a / b;
+                    }
+
+                    int c;
+
+                    if (int.TryParse(split[2], out c))
+                    {
+                        return a + (double)b / c;
+                    }
+                }
+            }
+
+            throw new FormatException("Not a valid fraction.");
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            
+
+            //Communication skill compares to others
+            var kbnCm = fractionToDouble(dataGridViewPo.Rows[0].Cells[2].Value.ToString());
+            var kifCm = fractionToDouble(dataGridViewPo.Rows[0].Cells[3].Value.ToString());
+            var eaCm = fractionToDouble(dataGridViewPo.Rows[0].Cells[4].Value.ToString());
+            var fkCm = fractionToDouble(dataGridViewPo.Rows[0].Cells[5].Value.ToString());
+
+            //Knowledge of business models compares to others
+            var kifKbm = fractionToDouble(dataGridViewPo.Rows[1].Cells[3].Value.ToString());
+            var eaKbm = fractionToDouble(dataGridViewPo.Rows[1].Cells[4].Value.ToString());
+            var fkKbm = fractionToDouble(dataGridViewPo.Rows[1].Cells[5].Value.ToString());
+
+            //Knowledge of industry field
+            var eaKif = fractionToDouble(dataGridViewPo.Rows[2].Cells[4].Value.ToString());
+            var fkKif = fractionToDouble(dataGridViewPo.Rows[2].Cells[5].Value.ToString());
+
+            //Entrepeneur ability compares to others
+            var fkea = fractionToDouble(dataGridViewPo.Rows[3].Cells[5].Value.ToString());
+
+
+            //var teste = double.Parse(myvalue);
+            DialogResult dialogCamposIns = MessageBox.Show(kbnCm.ToString(),
+                  "Erro - seleção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            st.Visible = false;
+            sm.Visible = true;
+            po.Visible = false;
+
+            dataGridViewSm.Rows.Add("Communication Skill", 1);
+            dataGridViewSm.Rows.Add("Project Managment tools", 0, 1);
+            dataGridViewSm.Rows.Add("Continuos integration tools", 0, 0, 1);
+            dataGridViewSm.Rows.Add("Development enviroment setup", 0, 0, 0, 1);
+            dataGridViewSm.Rows.Add("Motivation ability", 0, 0, 0, 0, 1);
+            dataGridViewSm.Rows.Add("Coordenation skill", 0, 0, 0, 0, 0, 1);
+
+            foreach (DataGridViewColumn column in dataGridViewSm.Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            //Communication skill compares to others
+            var pmtCs = fractionToDouble(dataGridViewSm.Rows[0].Cells[2].Value.ToString());
+            var citCs = fractionToDouble(dataGridViewSm.Rows[0].Cells[3].Value.ToString());
+            var desCs = fractionToDouble(dataGridViewSm.Rows[0].Cells[4].Value.ToString());
+            var maCs = fractionToDouble(dataGridViewSm.Rows[0].Cells[5].Value.ToString());
+            var csCs = fractionToDouble(dataGridViewSm.Rows[0].Cells[6].Value.ToString());
+
+
+            //Project Managment tools
+            var citPmt = fractionToDouble(dataGridViewSm.Rows[1].Cells[3].Value.ToString());
+            var desPmt = fractionToDouble(dataGridViewSm.Rows[1].Cells[4].Value.ToString());
+            var maPmt = fractionToDouble(dataGridViewSm.Rows[1].Cells[5].Value.ToString());
+            var csPmt = fractionToDouble(dataGridViewSm.Rows[1].Cells[6].Value.ToString());
+
+            //Continuos integration tools
+            var desCit = fractionToDouble(dataGridViewSm.Rows[2].Cells[4].Value.ToString());
+            var maCit = fractionToDouble(dataGridViewSm.Rows[2].Cells[5].Value.ToString());
+            var csCit = fractionToDouble(dataGridViewSm.Rows[2].Cells[6].Value.ToString());
+
+            //Development enviroment setup
+            var maDes = fractionToDouble(dataGridViewSm.Rows[3].Cells[5].Value.ToString());
+            var csDes = fractionToDouble(dataGridViewSm.Rows[3].Cells[6].Value.ToString());
+
+            //Motivation ability
+            var csMa = fractionToDouble(dataGridViewSm.Rows[4].Cells[6].Value.ToString());
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            st.Visible = true;
+            sm.Visible = false;
+            po.Visible = false;
+
+            dataGridViewSt.Rows.Add("Programming language skills", 1);
+            dataGridViewSt.Rows.Add("Problem solving abilities", 0, 1);
+            dataGridViewSt.Rows.Add("Testing skillls", 0, 0, 1);
+            dataGridViewSt.Rows.Add("Continuos integration tools", 0, 0, 0, 1);
+            dataGridViewSt.Rows.Add("Refactoring concepts", 0, 0, 0, 0, 1);
+            dataGridViewSt.Rows.Add("Database knowledge", 0, 0, 0, 0, 0, 1);
+            dataGridViewSt.Rows.Add("Big data knowledge", 0, 0, 0, 0, 0, 0, 1);
+
+            foreach (DataGridViewColumn column in dataGridViewSt.Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            //Programming language skills 
+            var psaPls = fractionToDouble(dataGridViewSt.Rows[0].Cells[2].Value.ToString());
+            var tsPls = fractionToDouble(dataGridViewSt.Rows[0].Cells[3].Value.ToString());
+            var citPls = fractionToDouble(dataGridViewSt.Rows[0].Cells[4].Value.ToString());
+            var rcPls = fractionToDouble(dataGridViewSt.Rows[0].Cells[5].Value.ToString());
+            var dkPls = fractionToDouble(dataGridViewSt.Rows[0].Cells[6].Value.ToString());
+            var bdkPls = fractionToDouble(dataGridViewSt.Rows[0].Cells[7].Value.ToString());
+
+            //Problem solving abilities
+            var tsPsa = fractionToDouble(dataGridViewSt.Rows[1].Cells[3].Value.ToString());
+            var citPsa = fractionToDouble(dataGridViewSt.Rows[1].Cells[4].Value.ToString());
+            var rcPsa = fractionToDouble(dataGridViewSt.Rows[1].Cells[5].Value.ToString());
+            var dkPsa = fractionToDouble(dataGridViewSt.Rows[1].Cells[6].Value.ToString());
+            var bdkPsa = fractionToDouble(dataGridViewSt.Rows[1].Cells[7].Value.ToString());
+
+            //Testing skillls
+            var citTs = fractionToDouble(dataGridViewSt.Rows[2].Cells[4].Value.ToString());
+            var rcTs = fractionToDouble(dataGridViewSt.Rows[2].Cells[5].Value.ToString());
+            var dkTs = fractionToDouble(dataGridViewSt.Rows[2].Cells[6].Value.ToString());
+            var bdkTs = fractionToDouble(dataGridViewSt.Rows[2].Cells[7].Value.ToString());
+
+            //Continuos integration tools
+            var rcCit = fractionToDouble(dataGridViewSt.Rows[3].Cells[5].Value.ToString());
+            var dkCit = fractionToDouble(dataGridViewSt.Rows[3].Cells[6].Value.ToString());
+            var bdkCit = fractionToDouble(dataGridViewSt.Rows[3].Cells[7].Value.ToString());
+
+            //Refactoring concepts
+            var dkRc = fractionToDouble(dataGridViewSt.Rows[4].Cells[6].Value.ToString());
+            var bdkRc = fractionToDouble(dataGridViewSt.Rows[4].Cells[7].Value.ToString());
+
+            //data knowledge
+            var bdkDk = fractionToDouble(dataGridViewSt.Rows[5].Cells[7].Value.ToString());
+        }
     }
 }
