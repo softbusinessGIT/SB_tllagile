@@ -502,26 +502,37 @@ namespace SB_tllagile
 
                 if (int.TryParse(split[0], out a) && int.TryParse(split[1], out b))
                 {
-                    if (split.Length == 2)
-                    {
-                        return (double)a / b;
-                    }
+                    if (b != 0)
+                    { 
+                        if (split.Length == 2)
+                        {
+                            return (double)a / b;
+                        }
 
-                    int c;
+                        int c;
 
-                    if (int.TryParse(split[2], out c))
-                    {
-                        return a + (double)b / c;
+                        if (int.TryParse(split[2], out c))
+                        {
+                            return a + (double)b / c;
+                        }
                     }
+                    
                 }
             }
-
-            throw new FormatException("Not a valid fraction.");
+            return 0;
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
             
+            //for (int row = 0; row<=3; row++)
+            //{
+            //    for (int cell=2; cell<=5; cell++)
+            //    {
+            //        fractionToDouble(dataGridViewPo.Rows[row].Cells[cell].Value.ToString());
+            //    }
+            //}
+
 
             //Communication skill compares to others
             var kbnCm = fractionToDouble(dataGridViewPo.Rows[0].Cells[2].Value.ToString());
