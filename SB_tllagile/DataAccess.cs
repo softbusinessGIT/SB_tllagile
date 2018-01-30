@@ -24,7 +24,7 @@ namespace SB_tllagile
             //throw new NotImplementedException();
 
         }
-        //Método pequisa na base de dados um colavorador
+        //Método pequisa na base de dados um colaborador
         public List<Colaborador> getColaborador(String idIn)
         {
             //using faz a ligação a BD e no fim dá KILL ao processo, para evitar loops e inconsistências
@@ -35,7 +35,8 @@ namespace SB_tllagile
                 return output;
             }
         }
-        //Método pequisa na base de dados um colaborador
+        
+        //Método pequisa na base de dados a indisponibilidade de um colab 
         public List<Indisponibilidade> getIndispColaborador(String idIn)
         {
             //using faz a ligação a BD e no fim dá KILL ao processo, para evitar loops e inconsistências
@@ -46,6 +47,7 @@ namespace SB_tllagile
                 return output;
             }  
         }
+
         //Método que pequisa na base de dados todos os colaboradores
         public List<Colaborador> getTodosColab()
         {
@@ -83,7 +85,7 @@ namespace SB_tllagile
             }
 
         }
-        //Método que Altera (Update) o estado/estado de um colaborador
+        //Método que Altera (Update) o estado de um colaborador
         public void alterColabBd(String id_colabIn, String estadoIn)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper_db.conVal("tllagileDB")))
@@ -92,6 +94,34 @@ namespace SB_tllagile
                 listaColab.Add(new Colaborador { id_colab = id_colabIn, estado = estadoIn });
 
                 connection.Execute($"UPDATE colaborador SET estado = @estado WHERE id_colab = @id_colab", listaColab);
+                //var output = connection.Query<Colaborador>("dbo.Nome_Procedure @estado", new {estado = estado}).ToList();
+                //return outputQueryUserBd;
+            }
+
+        }
+        //Método que Altera (Update) o estado equipa (se está ou não) de um colaborador
+        public void alterEstadoEquipaColabBd(String id_colabIn, String estadoIn)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper_db.conVal("tllagileDB")))
+            {
+                List<Colaborador> listaColab = new List<Colaborador>();
+                listaColab.Add(new Colaborador { id_colab = id_colabIn, estado_equipa = estadoIn });
+
+                connection.Execute($"UPDATE colaborador SET estado_equipa = @estado_equipa WHERE id_colab = @id_colab", listaColab);
+                //var output = connection.Query<Colaborador>("dbo.Nome_Procedure @estado", new {estado = estado}).ToList();
+                //return outputQueryUserBd;
+            }
+
+        }
+        //Método que Altera (Update) a informação de um colaborador
+        public void alterInfoColabBd(String id_colabIn, String emailIn, String nomeIn, String estadoIn, DateTime data_nascimentoIn)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper_db.conVal("tllagileDB")))
+            {
+                List<Colaborador> listaColab = new List<Colaborador>();
+                listaColab.Add(new Colaborador { id_colab = id_colabIn, email = emailIn, nome = nomeIn, data_nascimento = data_nascimentoIn, estado = estadoIn });
+
+                connection.Execute($"UPDATE colaborador SET estado = @estado, email = @email, data_nascimento = @data_nascimento, @nome = nome WHERE id_colab = @id_colab", listaColab);
                 //var output = connection.Query<Colaborador>("dbo.Nome_Procedure @estado", new {estado = estado}).ToList();
                 //return outputQueryUserBd;
             }
@@ -108,7 +138,18 @@ namespace SB_tllagile
             }
 
         }
-        //Método que Altera (Update) o estado/estado de um colaborador
+        //Método que Pesquisa os utilizadores na bd
+        public List<Utilizador> SearchUser(String username)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper_db.conVal("tllagileDB")))
+            {
+                var outputQueryUserBd = connection.Query<Utilizador>($" select * from utilizador where username = '{username}'").ToList();
+                //var output = connection.Query<Colaborador>("dbo.Nome_Procedure @estado", new {estado = estado}).ToList();
+                return outputQueryUserBd;
+            }
+
+        }
+        //Método que Altera (Update) a password de o utilizador
         public void alterUserPasswordBd(String username, String password)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper_db.conVal("tllagileDB")))
@@ -133,6 +174,18 @@ namespace SB_tllagile
             }
 
         }
+        //Método que Pesquisa prjetos ativos
+        public List<Projeto> searchProjetosBd()
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper_db.conVal("tllagileDB")))
+            {
+                var now = DateTime.Now.ToString("yyyy-MM-dd");
+                var outputQueryBd = connection.Query<Projeto>($" select * from projeto where data_fim > '{now}'").ToList();
+                //var output = connection.Query<Colaborador>("dbo.Nome_Procedure @estado", new {estado = estado}).ToList();
+                return outputQueryBd;
+            }
+        }
+
 
         //Método que Pesquisa equipas por estado
         public List<Equipa> searchEquipaBd(int estadoIn)
@@ -142,9 +195,61 @@ namespace SB_tllagile
                 var outputQueryBd = connection.Query<Equipa>($" select distinct E.nome, P.nome as nomeProj, E.estado from equipa E, colaborador C, projeto P, funcao F where E.estado = '{estadoIn}'and E.id_projeto = P.id_projeto").ToList();
                 //var output = connection.Query<Colaborador>("dbo.Nome_Procedure @estado", new {estado = estado}).ToList();
                 return outputQueryBd;
-
-
             }
         }
+
+        //Método que Pesquisa se o colocaborador está numa equipa
+        public List<Equipa> searchColabEquipaBd()
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper_db.conVal("tllagileDB")))
+            {
+                var outputQueryBd = connection.Query<Equipa>($" Select * from colaborador, equipa where equipa.id_colab = colaborador.id_colab and equipa.estado='1'").ToList();
+                //var output = connection.Query<Colaborador>("dbo.Nome_Procedure @estado", new {estado = estado}).ToList();
+                return outputQueryBd;
+            }
+        }
+        //Método que Pesquisa se o colocaborador está numa equipa
+        public List<Colaborador> searchColabEstadoEquipaBd()
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper_db.conVal("tllagileDB")))
+            {
+                var outputQueryBd = connection.Query<Colaborador>($" Select * from colaborador where estado_equipa='0' and estado='1'").ToList();
+                //var output = connection.Query<Colaborador>("dbo.Nome_Procedure @estado", new {estado = estado}).ToList();
+                return outputQueryBd;
+            }
+        }
+        //Método que Pesquisa se o colocaborador está numa equipa
+        public List<Colaborador> pontuacaoColab()
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper_db.conVal("tllagileDB")))
+            {
+                var outputQueryBd = connection.Query<Colaborador>($" Select distinct *, colaborador.nome as colab_nome from colaborador, equipa, avaliacao where colaborador.id_colab = equipa.id_colab and equipa.id_avaliacao = avaliacao.id_avaliacao and colaborador.estado_equipa = 0").ToList();
+                //var output = connection.Query<Colaborador>("dbo.Nome_Procedure @estado", new {estado = estado}).ToList();
+                return outputQueryBd;
+            }
+        }
+        //Método que insere um historico de Projetos na BD
+        public void insertHistoricoColabBd(String id_colabIn, DateTime data_ndisp_inicioIn, DateTime data_ndisp_fimIn, String motivoIn)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper_db.conVal("tllagileDB")))
+            {
+                List<Indisponibilidade> listaIndispColab = new List<Indisponibilidade>();
+                listaIndispColab.Add(new Indisponibilidade { id_colab = id_colabIn, data_ndisp_inicio = data_ndisp_inicioIn, data_ndisp_fim = data_ndisp_fimIn, motivo = motivoIn });
+
+                connection.Execute($"insert into indisponibilidade(id_colab,data_ndisp_inicio,data_ndisp_fim,motivo) values(@id_colab, @data_ndisp_inicio,@data_ndisp_fim,@motivo)", listaIndispColab);
+            }
+
+        }
+        //Método que Pesquisa prjetos de um colaborador
+        public List<Projeto> searchHistoricoBd(String id_colabIn)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper_db.conVal("tllagileDB")))
+            {
+                var outputQueryBd = connection.Query<Projeto>($" select * from historico, projeto where id_colab = '{id_colabIn}'").ToList();
+                //var output = connection.Query<Colaborador>("dbo.Nome_Procedure @estado", new {estado = estado}).ToList();
+                return outputQueryBd;
+            }
+        }
+
     }
 }

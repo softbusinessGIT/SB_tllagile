@@ -16,7 +16,14 @@ namespace SB_tllagile
         List<Colaborador> listaPesquisaBasicaColab = new List<Colaborador>();
         List<Colaborador> listaAlterColab = new List<Colaborador>();
         List<Equipa> listaEquipa = new List<Equipa>();
+        List<Projeto> listaProjetos = new List<Projeto>();
+        public int tam;
         DataAccess db = new DataAccess(); //cria o objeto db
+
+        Colaborador[] productOwner;//colaborador -> productOwner
+        Colaborador[] scrumMasterColab;//colaborador -> Scrum Master
+        Colaborador[] scrumTeam;//lista de colaboradores -> Scrum team
+
 
         public MainPainel()
         {
@@ -78,6 +85,9 @@ namespace SB_tllagile
             SearchEquipaEstadoPanel.Visible = false;
             AlterDispColabPainel.Visible = false;
             SearchColabPerfilPainel.Visible = false;
+            gerarEquipaPanel.Visible = false;
+            alterarInfoColabPanel.Visible = false;
+            projetoEquipaPanel.Visible = false;
         }
 
         //--------------------------------------------------------------------------------------------------------------
@@ -88,7 +98,6 @@ namespace SB_tllagile
             //Data de nascimento do colaborador
             //String dataNascimento = InsDataNascPicker.Value.ToString("yyyy-MM-dd");
 
-            //DataAccess db = new DataAccess(); //cria o objeto db
             if (InsNomeTextBox.Text.Equals("") || InsEmailTextBox.Equals(""))  //se os campos forem vazios apresenta uma janela de erro
             {
                 DialogResult dialogCamposIns = MessageBox.Show("Campos vazios, Preencha todos campos e tente novamente",
@@ -96,7 +105,7 @@ namespace SB_tllagile
             }
             else // se não, faz a query a BD
             {
-                if (InsComboBox.Text.Equals("Disponivel"))
+                if (InsComboBox.Text.Equals("Ativo"))
                 {
                     db.insertColabBd(InsNomeTextBox.Text, "1", DateTime.Now, InsDataNascPicker.Value, InsEmailTextBox.Text);
                 }
@@ -123,6 +132,9 @@ namespace SB_tllagile
             SearchEquipaEstadoPanel.Visible = false;
             AlterDispColabPainel.Visible = false;
             SearchColabPerfilPainel.Visible = false;
+            gerarEquipaPanel.Visible = false;
+            alterarInfoColabPanel.Visible = false;
+            projetoEquipaPanel.Visible = false;
         }
         //-----------------------------------------------------------------------------------------------------------
 
@@ -139,7 +151,7 @@ namespace SB_tllagile
                "Erro - Campos vazios", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
-            {     
+            {
 
                 //String dataIniProj = InsProjDataIniPicker.Value.ToString("yyyy-MM-dd");
                 //String dataFimProj = InsProjDataFimPicker.Value.ToString("yyyy-MM-dd");
@@ -173,11 +185,14 @@ namespace SB_tllagile
             SearchEquipaEstadoPanel.Visible = false;
             AlterDispColabPainel.Visible = false;
             SearchColabPerfilPainel.Visible = false;
+            gerarEquipaPanel.Visible = false;
+            alterarInfoColabPanel.Visible = false;
+            projetoEquipaPanel.Visible = false;
         }
         //------------------------------------------------------------------------------------------------------------
         private void colaboradorToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         //----------------------------------Alterar estado do colaborador-----------------------------
@@ -191,6 +206,9 @@ namespace SB_tllagile
             SearchEquipaEstadoPanel.Visible = false;
             AlterDispColabPainel.Visible = false;
             SearchColabPerfilPainel.Visible = false;
+            gerarEquipaPanel.Visible = false;
+            alterarInfoColabPanel.Visible = false;
+            projetoEquipaPanel.Visible = false;
 
             pesquisarTodosUsers(); // invoca o método que pesquisa por todos os user na BD
         }
@@ -267,7 +285,7 @@ namespace SB_tllagile
         //-------------------------------------Homepage---------------------------------------------
         private void HomeWebsiteButton_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("http://softbusiness.mypressonline.com/");
+            System.Diagnostics.Process.Start("https://softbusinesssb.000webhostapp.com/");
         }
 
         private void homeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -280,6 +298,9 @@ namespace SB_tllagile
             SearchEquipaEstadoPanel.Visible = false;
             AlterDispColabPainel.Visible = false;
             SearchColabPerfilPainel.Visible = false;
+            gerarEquipaPanel.Visible = false;
+            alterarInfoColabPanel.Visible = false;
+            projetoEquipaPanel.Visible = false;
         }
         //---------------------------------------------------------------------------------------
 
@@ -294,6 +315,9 @@ namespace SB_tllagile
             SearchEquipaEstadoPanel.Visible = true;
             AlterDispColabPainel.Visible = false;
             SearchColabPerfilPainel.Visible = false;
+            gerarEquipaPanel.Visible = false;
+            alterarInfoColabPanel.Visible = false;
+            projetoEquipaPanel.Visible = false;
         }
 
         private void SearchEquipaButton_Click(object sender, EventArgs e)
@@ -321,7 +345,7 @@ namespace SB_tllagile
                 listViewSearchEquipaEstado.Items.Add(item1);
             }
         }
-        //--------------------------------------------------------------------------------------
+        //--------------------------------------------------------------------------------------------------
 
 
         // -----------------------------------Alterar Disponibilidade---------------------------------------
@@ -335,6 +359,9 @@ namespace SB_tllagile
             SearchEquipaEstadoPanel.Visible = false;
             AlterDispColabPainel.Visible = true;
             SearchColabPerfilPainel.Visible = false;
+            gerarEquipaPanel.Visible = false;
+            alterarInfoColabPanel.Visible = false;
+            projetoEquipaPanel.Visible = false;
 
             //lista que vai conter todos os utilizadores
             listaAlterColab = db.getPessoa(1);
@@ -345,13 +372,13 @@ namespace SB_tllagile
             //Popular a listView com o conteudo da lista
             foreach (Colaborador colab in listaAlterColab)
             {
-                ListViewItem item1 = new ListViewItem(colab.id_colab);     
+                ListViewItem item1 = new ListViewItem(colab.id_colab);
                 item1.SubItems.Add(colab.nome);
                 item1.SubItems.Add(colab.email);
 
                 AlterDispColabListView.Items.Add(item1);
             }
-            
+
         }
 
         private void AlterDispColabButton_Click(object sender, EventArgs e)
@@ -397,30 +424,7 @@ namespace SB_tllagile
         //-------------------------------------Visualizar Perfil do colaborador----------------------------------
         private void perfilToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SearchColabBasicaPainel.Visible = false;
-            InsertProjetoPainel.Visible = false;
-            InsertColabPainel.Visible = false;
-            AlterColabPainel.Visible = false;
-            HomePainel.Visible = false;
-            SearchEquipaEstadoPanel.Visible = false;
-            AlterDispColabPainel.Visible = false;
-            SearchColabPerfilPainel.Visible = true;
 
-            //lista que vai conter todos os utilizadores
-            listaPesquisaBasicaColab = db.getPessoa(1);
-
-            //Limpar listView
-            listViewPerfilColab.Items.Clear();
-
-            //Popular a listView com o conteudo da lista
-            foreach (Colaborador colab in listaPesquisaBasicaColab)
-            {
-                ListViewItem item1 = new ListViewItem(colab.id_colab);
-                item1.SubItems.Add(colab.nome);
-                item1.SubItems.Add(colab.email);
-
-                listViewPerfilColab.Items.Add(item1);
-            }
         }
 
         private void VisualizarPerfilButton_Click(object sender, EventArgs e)
@@ -442,46 +446,24 @@ namespace SB_tllagile
 
         }
         //----------------------------------------------Criar Equipa-----------------------------------------------------------------
+        //Botão criar equipa - product Owner
         private void button1_Click(object sender, EventArgs e)
         {
-
+            gerarWhitePanel.Visible = false;
             st.Visible = false;
             sm.Visible = false;
             po.Visible = true;
 
-            dataGridViewPo.Rows.Add("Communication Skill",1);
+            dataGridViewPo.Rows.Add("Communication Skill", 1);
             dataGridViewPo.Rows.Add("Knowledge of business models", 0, 1);
-            dataGridViewPo.Rows.Add("Knowledge of industry field",0,0,1);
-            dataGridViewPo.Rows.Add("Entrepeneur ability",0,0,0,1);
-            dataGridViewPo.Rows.Add("Financial knowledge", 0, 0, 0,0, 1);
+            dataGridViewPo.Rows.Add("Knowledge of industry field", 0, 0, 1);
+            dataGridViewPo.Rows.Add("Entrepeneur ability", 0, 0, 0, 1);
+            dataGridViewPo.Rows.Add("Financial knowledge", 0, 0, 0, 0, 1);
 
             foreach (DataGridViewColumn column in dataGridViewPo.Columns)
             {
                 column.SortMode = DataGridViewColumnSortMode.NotSortable;
             }
-
-            
-
-            //DataGridViewRow row = (DataGridViewRow)dataGridViewPo.Rows[0].Clone();
-            //row.Cells[0].Value = "Communication Skill";
-            //row.Cells[1].Value = 50.2;
-            //dataGridViewPo.Rows.Add(row);
-
-            //DataGridViewRow row2 = (DataGridViewRow)dataGridViewPo.Rows[1];
-            //row.Cells[0].Value = "Knowledge of business models";
-            //dataGridViewPo.Rows.Add(row2);
-
-            //DataGridViewRow row3 = (DataGridViewRow)dataGridViewPo.Rows[2].Clone();
-            //row.Cells[0].Value = "Knowledge of industry field";
-            //dataGridViewPo.Rows.Add(row3);
-
-            //DataGridViewRow row4 = (DataGridViewRow)dataGridViewPo.Rows[3].Clone();
-            //row.Cells[0].Value = "Entrepeneur ability";
-            //dataGridViewPo.Rows.Add(row4);
-
-            //DataGridViewRow row5 = (DataGridViewRow)dataGridViewPo.Rows[4].Clone();
-            //row.Cells[0].Value = "Financial knowledge";
-            //dataGridViewPo.Rows.Add(row5);
         }
 
         //Método que converte frações de string para double ex: string "1/2" returns 0,5
@@ -503,7 +485,7 @@ namespace SB_tllagile
                 if (int.TryParse(split[0], out a) && int.TryParse(split[1], out b))
                 {
                     if (b != 0)
-                    { 
+                    {
                         if (split.Length == 2)
                         {
                             return (double)a / b;
@@ -516,7 +498,7 @@ namespace SB_tllagile
                             return a + (double)b / c;
                         }
                     }
-                    
+
                 }
             }
             return 0;
@@ -524,15 +506,6 @@ namespace SB_tllagile
 
         private void button6_Click(object sender, EventArgs e)
         {
-            
-            //for (int row = 0; row<=3; row++)
-            //{
-            //    for (int cell=2; cell<=5; cell++)
-            //    {
-            //        fractionToDouble(dataGridViewPo.Rows[row].Cells[cell].Value.ToString());
-            //    }
-            //}
-
 
             //Communication skill compares to others
             var kbnCm = fractionToDouble(dataGridViewPo.Rows[0].Cells[2].Value.ToString());
@@ -554,12 +527,26 @@ namespace SB_tllagile
 
 
             //var teste = double.Parse(myvalue);
-            DialogResult dialogCamposIns = MessageBox.Show(kbnCm.ToString(),
-                  "Erro - seleção", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
+            //DialogResult dialogCamposIns = MessageBox.Show(kbnCm.ToString(),
+            //      "Erro - seleção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //Colaborador escolhido para product owner
+            productOwner = Ahp.calcularAhpProductOwner(kbnCm, kifCm, eaCm, fkCm, kifKbm, eaKbm, fkKbm, eaKif, fkKif, fkea);
 
+            // if (productOwner.Equals(null)){
+            //DialogResult dialogCamposIns = MessageBox.Show("Não existem elementos suficientes para construir uma equipa.",
+            //     "Erro - criação de equipa", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            // }
+            // else
+            //{
+            //Altera na BD o estado equipa do colaborador
+            db.alterEstadoEquipaColabBd(productOwner[0].id_colab, "1");
+            //}
+        }
+        //Botão criar equipa - scrum master
         private void button5_Click(object sender, EventArgs e)
         {
+            gerarWhitePanel.Visible = false;
             st.Visible = false;
             sm.Visible = true;
             po.Visible = false;
@@ -604,10 +591,27 @@ namespace SB_tllagile
 
             //Motivation ability
             var csMa = fractionToDouble(dataGridViewSm.Rows[4].Cells[6].Value.ToString());
+
+            //Método ahp para calcular o scrum master
+            scrumMasterColab = Ahp.calcularAhpTeamMaster(pmtCs, citCs, desCs, maCs, csCs, citPmt, desPmt, maPmt, csPmt, desCit, maCit, csCit, maDes, csDes, csMa);
+
+            if (productOwner.Equals(null))
+            {
+                DialogResult dialogCamposIns = MessageBox.Show("Não existem elementos suficientes para construir uma equipa.",
+                     "Erro - criação de equipa", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            else
+            {
+                //Altera na BD o estado equipa do colaborador
+                db.alterEstadoEquipaColabBd(scrumMasterColab[0].id_colab, "1");
+            }
         }
 
+        //Botão criar equipa - scrum team
         private void button4_Click(object sender, EventArgs e)
         {
+            gerarWhitePanel.Visible = false;
             st.Visible = true;
             sm.Visible = false;
             po.Visible = false;
@@ -660,6 +664,288 @@ namespace SB_tllagile
 
             //data knowledge
             var bdkDk = fractionToDouble(dataGridViewSt.Rows[5].Cells[7].Value.ToString());
+
+            //lista com os elementos da scrum team
+            scrumTeam = Ahp.calcularAhpTeam(psaPls, tsPls, citPls, rcPls, dkPls, bdkPls, tsPsa, citPsa, rcPsa, dkPsa, bdkPsa, citTs, rcTs, dkTs, bdkTs, rcCit, dkCit, bdkCit, dkRc, bdkRc, bdkDk);
+
+            //verifica se existe colavoradores no array
+            //if (scrumTeam.Equals(null))
+            //{
+            //    DialogResult dialogCamposIns = MessageBox.Show("Não existem elementos suficientes para construir uma equipa.",
+            //         "Erro - criação de equipa", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            //}
+            //else
+            //{
+            //verificar quantos elementos vão estar presentes na equipa, no máximo uma equipa vai ter 8 elementos na scrum team
+            if(scrumTeam.Length.Equals (0))
+            {
+                tam = 0;
+            }
+            else if (scrumTeam.Length.Equals(1))
+            {
+                tam = 0;
+            }
+            else if(scrumTeam.Length.Equals(2))
+            {
+                tam = 0;
+            }
+            else if (scrumTeam.Length.Equals(3))
+            {
+                tam = 0;
+            }
+            else if(scrumTeam.Length.Equals(4))
+            {
+                tam = 0;
+            }
+            else if(scrumTeam.Length.Equals(5))
+            {
+                tam = 0;
+            }
+            else
+            {
+                tam = 0;
+            }
+
+
+            switch (scrumTeam.Length)
+            {
+                case 0:
+                    tam = 0;
+                    break;
+                case 1:
+                    tam = 0;
+                    break;
+                case 2:
+                    tam = 0;
+                    break;
+                case 3:
+                    tam = 3;
+                    break;
+                case 4:
+                    tam = 4;
+                    break;
+                case 5:
+                    tam = 5;
+                    break;
+                case 6:
+                    tam = 6;
+                    break;
+                case 7:
+                    tam = 7;
+                    break;
+                default:
+                    tam = 8;
+                    break;
+            }
+            for (int i = 0; i < tam; i++)
+            {
+                //Altera na BD o estado equipa do colaborador
+                db.alterEstadoEquipaColabBd(scrumTeam[i].id_colab, "1");
+            }
+
+            //}
+
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void avançadaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SearchColabBasicaPainel.Visible = false;
+            InsertProjetoPainel.Visible = false;
+            InsertColabPainel.Visible = false;
+            AlterColabPainel.Visible = false;
+            HomePainel.Visible = false;
+            SearchEquipaEstadoPanel.Visible = false;
+            AlterDispColabPainel.Visible = false;
+            SearchColabPerfilPainel.Visible = true;
+            gerarEquipaPanel.Visible = false;
+            alterarInfoColabPanel.Visible = false;
+            projetoEquipaPanel.Visible = false;
+
+            //lista que vai conter todos os utilizadores
+            listaPesquisaBasicaColab = db.getPessoa(1);
+
+            //Limpar listView
+            listViewPerfilColab.Items.Clear();
+
+            //Popular a listView com o conteudo da lista
+            foreach (Colaborador colab in listaPesquisaBasicaColab)
+            {
+                ListViewItem item1 = new ListViewItem(colab.id_colab);
+                item1.SubItems.Add(colab.nome);
+                item1.SubItems.Add(colab.email);
+
+                listViewPerfilColab.Items.Add(item1);
+            }
+        }
+
+        private void equipaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SearchColabBasicaPainel.Visible = false;
+            InsertProjetoPainel.Visible = false;
+            InsertColabPainel.Visible = false;
+            AlterColabPainel.Visible = false;
+            HomePainel.Visible = false;
+            SearchEquipaEstadoPanel.Visible = false;
+            AlterDispColabPainel.Visible = false;
+            SearchColabPerfilPainel.Visible = false;
+            gerarEquipaPanel.Visible = false;
+            alterarInfoColabPanel.Visible = false;
+            projetoEquipaPanel.Visible = true;
+
+            //Pesquisar na db os projetos ativos
+            listaProjetos = db.searchProjetosBd();
+
+            //Limpar listView
+            porjetoListView.Items.Clear();
+
+            //Popular a listView com o conteudo da lista
+            foreach (Projeto projetoAtual in listaProjetos)
+            {
+                ListViewItem item1 = new ListViewItem(projetoAtual.id_projeto);
+                item1.SubItems.Add(projetoAtual.nome);
+                item1.SubItems.Add(projetoAtual.data_ini.ToString());
+                item1.SubItems.Add(projetoAtual.data_fim.ToString());
+
+                porjetoListView.Items.Add(item1);
+            }
+
+        }
+        //----------------------------------------------Alterar Dados do Colaborador-------------------------------------------
+
+        private void alterarInfoColabButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //A variavel id vai ter o valor do subitem[0] da row selecionada
+                String id = alterarInfoColabListView.SelectedItems[0].SubItems[0].Text;
+
+                //Instanciar e Atribuir o objeto PerfilColaborador
+                UpdateUser janela = new UpdateUser(id);
+                janela.Show();
+            }
+            catch (Exception)
+            {
+                DialogResult dialogCamposIns = MessageBox.Show("Colaborador não selecionado, faça uma seleção e tente novamente!",
+                   "Erro - seleção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void perfilToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            SearchColabBasicaPainel.Visible = false;
+            InsertProjetoPainel.Visible = false;
+            InsertColabPainel.Visible = false;
+            AlterColabPainel.Visible = false;
+            HomePainel.Visible = false;
+            SearchEquipaEstadoPanel.Visible = false;
+            AlterDispColabPainel.Visible = false;
+            SearchColabPerfilPainel.Visible = false;
+            gerarEquipaPanel.Visible = false;
+            alterarInfoColabPanel.Visible = true;
+            projetoEquipaPanel.Visible = false;
+            gerarWhitePanel.Visible = false;
+
+            //lista que vai conter todos os utilizadores
+            listaPesquisaBasicaColab = db.getPessoa(1);
+
+            //Limpar listView
+            alterarInfoColabListView.Items.Clear();
+
+            //Popular a listView com o conteudo da lista
+            foreach (Colaborador colab in listaPesquisaBasicaColab)
+            {
+                ListViewItem item1 = new ListViewItem(colab.id_colab);
+                item1.SubItems.Add(colab.nome);
+                item1.SubItems.Add(colab.email);
+                item1.SubItems.Add(colab.data_nascimento.ToString());
+
+                alterarInfoColabListView.Items.Add(item1);
+            }
+        }
+
+        private void gerarEquipaButton_Click(object sender, EventArgs e)
+        {
+            //if (productOwner.Equals(null)|| scrumMasterColab.Equals(null) || scrumTeam.Equals(null))
+            //{
+            //    DialogResult dialogCamposIns = MessageBox.Show("Não existem elementos suficientes para construir uma equipa.",
+            //         "Erro - criação de equipa", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            //}
+            //else
+            //{
+            //mete visivel o panel que mostra o conteuda da equipa
+            confirmPanel.Visible = true;
+            gerarWhitePanel.Visible = false;
+            st.Visible = false;
+            sm.Visible = false;
+            po.Visible = false;
+
+            //Coloca os elementos na combo box
+            for (int i = 0; i < productOwner.Length; i++)
+            {
+                comboBoxPO.Items.Add(productOwner[i].colab_nome);
+            }
+
+            for (int i = 0; i < scrumMasterColab.Length; i++)
+            {
+                comboBoxSM.Items.Add(scrumMasterColab[i].colab_nome);
+            }
+
+            for (int i = 0; i < scrumTeam.Length; i++)
+            {
+                richTextBoxST.Text = richTextBoxST.Text+ Environment.NewLine + scrumTeam[i].colab_nome;
+            }
+
+            comboBoxPO.SelectedIndex = 0;
+            comboBoxSM.SelectedIndex = 0;
+
+
+
+
+            //Criar historico de equipas
+
+            //}
+        }
+
+        private void ProjetoEquipaButton_Click(object sender, EventArgs e)
+        {
+            SearchColabBasicaPainel.Visible = false;
+            InsertProjetoPainel.Visible = false;
+            InsertColabPainel.Visible = false;
+            AlterColabPainel.Visible = false;
+            HomePainel.Visible = false;
+            SearchEquipaEstadoPanel.Visible = false;
+            AlterDispColabPainel.Visible = false;
+            SearchColabPerfilPainel.Visible = false;
+            gerarEquipaPanel.Visible = true;
+            alterarInfoColabPanel.Visible = false;
+            projetoEquipaPanel.Visible = false;
+
+            gerarWhitePanel.Visible = true;
+            confirmPanel.Visible = false;
+        }
+
+        private void gerarEquipaPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void cancelEquipaButton_Click(object sender, EventArgs e)
+        {
+            //Altera na BD o estado equipa do colaborador
+            db.alterEstadoEquipaColabBd(productOwner[0].id_colab, "0");
+            db.alterEstadoEquipaColabBd(scrumMasterColab[0].id_colab, "0");
+            for (int i = 0; i < tam; i++)
+            {
+                db.alterEstadoEquipaColabBd(scrumTeam[i].id_colab, "0");
+
+            }
         }
     }
 }

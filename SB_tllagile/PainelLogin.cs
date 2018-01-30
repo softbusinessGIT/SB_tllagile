@@ -18,6 +18,7 @@ namespace SB_tllagile
     {
         //static MainPainel janela;
         List<Utilizador> ListaUser = new List<Utilizador>(); //lista de Utilizador (tipo Utilizador)
+        DataAccess db = new DataAccess();
 
         public PainelLogin()
         {
@@ -26,7 +27,7 @@ namespace SB_tllagile
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            DataAccess db = new DataAccess();
+            
 
             // Encriptação da string digitada pelo utilizador
             SHA384 sha384 = SHA384Managed.Create();
@@ -87,6 +88,66 @@ namespace SB_tllagile
         {
             RecupPanel.Visible = true;
             LoginPanel.Visible = false;
+        }
+
+        private void UserRecupText_Click(object sender, EventArgs e)
+        {
+            UserRecupText.Text = "";
+        }
+
+        private void PassRecupText_Click(object sender, EventArgs e)
+        {
+            PassRecupText.Text = "";
+            PassRecupText.UseSystemPasswordChar = true;
+        }
+
+        private void PassConfRecupText_Click(object sender, EventArgs e)
+        {
+            PassConfRecupText.Text = "";
+            PassConfRecupText.UseSystemPasswordChar = true;
+        }
+
+        private void AplicarRecupButton_Click(object sender, EventArgs e)
+        {
+            if (PassConfRecupText.Text.Equals(PassRecupText.Text))
+            {
+                ListaUser = db.SearchUser(UserRecupText.Text); //GetStringFromHash é o metodo que retorna a string da chave encriptada
+
+                if ((ListaUser.Count).Equals(1))
+                {
+                    // Encriptação da string digitada pelo utilizador
+                    SHA384 sha384 = SHA384Managed.Create();
+                    byte[] bytes = Encoding.UTF8.GetBytes(PassConfRecupText.Text);
+                    byte[] hash = sha384.ComputeHash(bytes);
+
+                    //Pesquisa na Base de dados o utilizador
+                    db.alterUserPasswordBd(UserRecupText.Text, getStringFromHash(hash)); //GetStringFromHash é o metodo que retorna a string da chave encriptada
+
+                    //Alterar para o painel do login
+                    RecupPanel.Visible = false;
+                    LoginPanel.Visible = true;
+
+                    DialogResult dialogCredenciais = MessageBox.Show("Credênciais alteradas com sucesso!",
+                    "Credênciais Alteradas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    PasswordText.Text = "";
+                }
+                else
+                {
+                    DialogResult dialogCredenciais = MessageBox.Show("Utilizador inválido, Tente Novamente.",
+                "Erro - Credênciais", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                
+            }
+            else
+            {
+                DialogResult dialogCredenciais = MessageBox.Show("Credênciais erradas, Tente Novamente.",
+                "Erro - Credênciais", MessageBoxButtons.OK, MessageBoxIcon.Error);                
+            }
+        }
+
+        private void exitAppButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

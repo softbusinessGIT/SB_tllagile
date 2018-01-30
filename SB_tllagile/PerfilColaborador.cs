@@ -26,7 +26,7 @@ namespace SB_tllagile
         {
             InitializeComponent();
             publicId = id;
-
+            
             carregarListViewInfo();
             carregarListViewIndisp();
 
@@ -56,6 +56,9 @@ namespace SB_tllagile
 
                 //Carregar valores na listView
                 listViewInfo.Items.Add(item1);
+
+                //Mudar a label
+                labelPerfil.Text = "Perfil de " + listaPesquisaColab[0].nome;
             }
         }
         //Método para popular a listView
