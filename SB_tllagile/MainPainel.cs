@@ -678,35 +678,7 @@ namespace SB_tllagile
             //else
             //{
             //verificar quantos elementos vão estar presentes na equipa, no máximo uma equipa vai ter 8 elementos na scrum team
-            if(scrumTeam.Length.Equals (0))
-            {
-                tam = 0;
-            }
-            else if (scrumTeam.Length.Equals(1))
-            {
-                tam = 0;
-            }
-            else if(scrumTeam.Length.Equals(2))
-            {
-                tam = 0;
-            }
-            else if (scrumTeam.Length.Equals(3))
-            {
-                tam = 0;
-            }
-            else if(scrumTeam.Length.Equals(4))
-            {
-                tam = 0;
-            }
-            else if(scrumTeam.Length.Equals(5))
-            {
-                tam = 0;
-            }
-            else
-            {
-                tam = 0;
-            }
-
+           
 
             switch (scrumTeam.Length)
             {
