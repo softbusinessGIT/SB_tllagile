@@ -9,12 +9,21 @@ namespace SB_tllagile
     class Equipa
     {
         public string nome{ get; set; }
-        public string nomeProj{ get; set; }
         public string estado{ get; set; }
         public string id_colab{ get; set; }
-        public string id_projeto{ get; set; }
         public string id_funcao{ get; set; }
-        // public string id_avaliacao{ get; set; }
+        public string id_avaliacao { get; set; }
+
+        //projeto
+        public DateTime data_ini { get; set; }
+        public DateTime data_fim { get; set; }
+        public string id_projeto { get; set; }
+        public string nomeProj { get; set; }
+
+        //colab
+        public string nomeColab { get; set; }
+        public string email { get; set; }
+        
 
         //metodo que retorna informação de um objeto Equipa
         public string dadosEquipa

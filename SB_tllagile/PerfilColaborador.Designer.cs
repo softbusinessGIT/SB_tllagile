@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PerfilColaborador));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.labelPerfil = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.listViewProjetos = new System.Windows.Forms.ListView();
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -49,15 +51,13 @@
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.rectangleShape17 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
-            this.labelPerfil = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.rectangleShape17 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -74,6 +74,29 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1241, 651);
             this.panel1.TabIndex = 0;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.White;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(0, 1);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(273, 134);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 21;
+            this.pictureBox2.TabStop = false;
+            // 
+            // labelPerfil
+            // 
+            this.labelPerfil.AutoSize = true;
+            this.labelPerfil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(222)))));
+            this.labelPerfil.Font = new System.Drawing.Font("Verdana", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPerfil.ForeColor = System.Drawing.Color.White;
+            this.labelPerfil.Location = new System.Drawing.Point(279, 39);
+            this.labelPerfil.Name = "labelPerfil";
+            this.labelPerfil.Size = new System.Drawing.Size(462, 45);
+            this.labelPerfil.TabIndex = 20;
+            this.labelPerfil.Text = "Perfil de Colaborador";
             // 
             // groupBox3
             // 
@@ -117,7 +140,7 @@
             // 
             // columnHeader7
             // 
-            this.columnHeader7.Text = "Equipa";
+            this.columnHeader7.Text = "Projeto";
             this.columnHeader7.Width = 147;
             // 
             // columnHeader11
@@ -231,16 +254,6 @@
             this.columnHeader10.Text = "Data de inscrição";
             this.columnHeader10.Width = 173;
             // 
-            // rectangleShape17
-            // 
-            this.rectangleShape17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(222)))));
-            this.rectangleShape17.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
-            this.rectangleShape17.BorderColor = System.Drawing.Color.White;
-            this.rectangleShape17.FillGradientColor = System.Drawing.Color.Transparent;
-            this.rectangleShape17.Location = new System.Drawing.Point(2, 0);
-            this.rectangleShape17.Name = "rectangleShape17";
-            this.rectangleShape17.Size = new System.Drawing.Size(1237, 135);
-            // 
             // shapeContainer1
             // 
             this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
@@ -252,28 +265,15 @@
             this.shapeContainer1.TabIndex = 3;
             this.shapeContainer1.TabStop = false;
             // 
-            // labelPerfil
+            // rectangleShape17
             // 
-            this.labelPerfil.AutoSize = true;
-            this.labelPerfil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(222)))));
-            this.labelPerfil.Font = new System.Drawing.Font("Verdana", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPerfil.ForeColor = System.Drawing.Color.White;
-            this.labelPerfil.Location = new System.Drawing.Point(546, 35);
-            this.labelPerfil.Name = "labelPerfil";
-            this.labelPerfil.Size = new System.Drawing.Size(462, 45);
-            this.labelPerfil.TabIndex = 20;
-            this.labelPerfil.Text = "Perfil de Colaborador";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.White;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(0, 1);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(273, 134);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 21;
-            this.pictureBox2.TabStop = false;
+            this.rectangleShape17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(222)))));
+            this.rectangleShape17.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
+            this.rectangleShape17.BorderColor = System.Drawing.Color.White;
+            this.rectangleShape17.FillGradientColor = System.Drawing.Color.Transparent;
+            this.rectangleShape17.Location = new System.Drawing.Point(2, 0);
+            this.rectangleShape17.Name = "rectangleShape17";
+            this.rectangleShape17.Size = new System.Drawing.Size(1237, 135);
             // 
             // PerfilColaborador
             // 
@@ -285,10 +285,10 @@
             this.Text = "PerfilColaborador";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }

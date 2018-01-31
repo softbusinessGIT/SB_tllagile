@@ -13,5 +13,10 @@ namespace SB_tllagile
         public DateTime data_ndisp_inicio { get; set; }
         public DateTime data_ndisp_fim { get; set; }
         public string motivo { get; set; }
+
+        //historico equipa
+        public string id_projeto { get; set; }
+        public DateTime data_ini { get; set; }
+        public DateTime data_fim { get; set; }
     }
 }

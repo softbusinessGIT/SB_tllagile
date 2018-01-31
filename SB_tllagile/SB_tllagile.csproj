@@ -68,6 +68,12 @@
     <Compile Include="Colaborador.cs" />
     <Compile Include="DataAccess.cs" />
     <Compile Include="Equipa.cs" />
+    <Compile Include="EquipaDeProjeto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EquipaDeProjeto.Designer.cs">
+      <DependentUpon>EquipaDeProjeto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Helper_db.cs" />
     <Compile Include="Historico.cs" />
     <Compile Include="Indisponibilidade.cs" />
@@ -99,6 +105,9 @@
       <DependentUpon>UpdateUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Utilizador.cs" />
+    <EmbeddedResource Include="EquipaDeProjeto.resx">
+      <DependentUpon>EquipaDeProjeto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainPainel.resx">
       <DependentUpon>MainPainel.cs</DependentUpon>
     </EmbeddedResource>

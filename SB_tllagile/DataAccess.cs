@@ -185,14 +185,36 @@ namespace SB_tllagile
                 return outputQueryBd;
             }
         }
-
-
-        //Método que Pesquisa equipas por estado
-        public List<Equipa> searchEquipaBd(int estadoIn)
+        //Método que Pesquisa prjetos por estado
+        public List<Projeto> searchProjetoIdBd(String id)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper_db.conVal("tllagileDB")))
             {
-                var outputQueryBd = connection.Query<Equipa>($" select distinct E.nome, P.nome as nomeProj, E.estado from equipa E, colaborador C, projeto P, funcao F where E.estado = '{estadoIn}'and E.id_projeto = P.id_projeto").ToList();
+                //var now = DateTime.Now.ToString("yyyy-MM-dd");
+                var outputQueryBd = connection.Query<Projeto>($" select * from projeto where id_projeto = '{id}'").ToList();
+                //var output = connection.Query<Colaborador>("dbo.Nome_Procedure @estado", new {estado = estado}).ToList();
+                return outputQueryBd;
+            }
+        }
+        //Método que Pesquisa prjetos ativos
+        public List<Projeto> searchProjetoDatasBd(DateTime data_iniIn, DateTime data_fimIn)
+        {
+            string DataIni = data_iniIn.ToString("yyyy-MM-dd");
+            var DataFim = data_fimIn.ToString("yyyy-MM-dd");
+
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper_db.conVal("tllagileDB")))
+            {
+                var outputQueryBd = connection.Query<Projeto>($" select * from projeto where data_ini BETWEEN '{DataIni}' and '{DataFim}' and data_fim BETWEEN '{DataIni}' and '{DataFim}'").ToList();
+                //var output = connection.Query<Colaborador>("dbo.Nome_Procedure @estado", new {estado = estado}).ToList();
+                return outputQueryBd;
+            }
+        }
+        //Método que Pesquisa equipas por estado
+        public List<Equipa> searchEquipaProjetoBd(String  id)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper_db.conVal("tllagileDB")))
+            {
+                var outputQueryBd = connection.Query<Equipa>($" select *, P.nome as nomeProj from equipa E, projeto P where E.id_colab = '{id}' and E.id_projeto = P.id_projeto").ToList();
                 //var output = connection.Query<Colaborador>("dbo.Nome_Procedure @estado", new {estado = estado}).ToList();
                 return outputQueryBd;
             }
@@ -228,6 +250,19 @@ namespace SB_tllagile
                 return outputQueryBd;
             }
         }
+        //Método que insere um colaborador a uma equipa
+        public void InsertEquipaBd(String nomeIn, String estadoIn, String colabId, String projetoId, String funcaoId)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper_db.conVal("tllagileDB")))
+            {
+                List<Equipa> listaEquipa = new List<Equipa>();
+                listaEquipa.Add(new Equipa { nome = nomeIn, estado = estadoIn, id_colab = colabId, id_funcao = funcaoId, id_projeto = projetoId , id_avaliacao = null});
+
+                connection.Execute($"insert into equipa(nome,estado,id_colab,id_funcao,id_projeto,id_avaliacao ) values(@nome,@estado,@id_colab,@id_funcao,@id_projeto,@id_avaliacao)", listaEquipa);
+            }
+
+        }
+
         //Método que insere um historico de Projetos na BD
         public void insertHistoricoColabBd(String id_colabIn, DateTime data_ndisp_inicioIn, DateTime data_ndisp_fimIn, String motivoIn)
         {
@@ -240,7 +275,19 @@ namespace SB_tllagile
             }
 
         }
-        //Método que Pesquisa prjetos de um colaborador
+        //Método que insere um historico de Projetos na BD
+        public void insertHistoricoEquipaColabBd(String id_colabIn, DateTime data_inicioIn, DateTime data_fimIn, String id_projetoIn)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper_db.conVal("tllagileDB")))
+            {
+                List<Indisponibilidade> listaIndispColab = new List<Indisponibilidade>();
+                listaIndispColab.Add(new Indisponibilidade { id_colab = id_colabIn, data_ini = data_inicioIn, data_fim = data_fimIn, id_projeto = id_projetoIn });
+
+                connection.Execute($"insert into historico(id_colab,data_ini,data_fim,id_projeto) values(@id_colab, @data_ini, @data_fim, @id_projeto)", listaIndispColab);
+            }
+
+        }
+        //Método que Pesquisa projetos de um colaborador
         public List<Projeto> searchHistoricoBd(String id_colabIn)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper_db.conVal("tllagileDB")))
