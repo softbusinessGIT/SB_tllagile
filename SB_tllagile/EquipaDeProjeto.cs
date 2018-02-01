@@ -26,15 +26,14 @@ namespace SB_tllagile
             publicId = id;
 
             carregarListViewEquipa();
-            //carregarListViewIndisp();
-            //carregarListViewHistorico();
+
 
         }
         //Método para carregar info na listview
         public void carregarListViewEquipa()
         {
-            listaPesquisaColabHistorico = db.searchEquipaProjetoBd(publicId);//Carregar a lista com o retorno da BD
-
+            listaPesquisaColabHistorico = db.searchEquipaProjetoInfoBd(publicId);//Carregar a lista com o retorno da BD
+            labelPerfilProjeto.Text = "Equipa do projeto: " + listaPesquisaColabHistorico[0].nomeProj;
             //Limpar a listView
             listViewEquipa.Items.Clear();
 
@@ -43,13 +42,13 @@ namespace SB_tllagile
             {
 
                 //Converter para string as datas em DateTime
-                String dataIni = colabProjeto.data_ini.ToString("yyyy-MM-dd");
-                String dataFim = colabProjeto.data_fim.ToString("yyyy-MM-dd");
+                //String dataIni = colabProjeto.data_ini.ToString("yyyy-MM-dd");
+                //String dataFim = colabProjeto.data_fim.ToString("yyyy-MM-dd");
 
                 //Indicar os subitems
-                ListViewItem item1 = new ListViewItem(dataIni);
-                item1.SubItems.Add(dataFim);
-                item1.SubItems.Add(colabProjeto.nomeProj);
+                ListViewItem item1 = new ListViewItem(colabProjeto.id_colab);
+                item1.SubItems.Add(colabProjeto.nomeColab);
+                item1.SubItems.Add(colabProjeto.email);
                 if (colabProjeto.id_funcao.Equals("1"))
                 {
                     item1.SubItems.Add("Product Owner");

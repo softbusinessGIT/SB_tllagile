@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainPainel));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle67 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle68 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle69 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle70 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle71 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle72 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -111,6 +111,7 @@
             this.HomePainel = new System.Windows.Forms.Panel();
             this.label20 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.HomeWebsiteButton = new System.Windows.Forms.Button();
             this.HomeLabel = new System.Windows.Forms.Label();
@@ -120,11 +121,22 @@
             this.rectangleShape24 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.rectangleShape18 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.SearchEquipaProjetoPanel = new System.Windows.Forms.Panel();
+            this.visualizarProjetoButton = new System.Windows.Forms.Button();
+            this.label30 = new System.Windows.Forms.Label();
+            this.visualizarProjFimDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.visualizarProjDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.visualizarProjetoEquipaButton = new System.Windows.Forms.Button();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.listViewSearchEquipaProjeto = new System.Windows.Forms.ListView();
             this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader23 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.shapeContainer5 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.rectangleShape32 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
+            this.rectangleShape31 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.rectangleShape14 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.AlterDispColabPainel = new System.Windows.Forms.Panel();
             this.AlterDispColabListView = new System.Windows.Forms.ListView();
@@ -229,30 +241,24 @@
             this.rectangleShape30 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.rectangleShape29 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.label10 = new System.Windows.Forms.Label();
-            this.columnHeader23 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.rectangleShape31 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.visualizarProjetoEquipaButton = new System.Windows.Forms.Button();
-            this.visualizarProjDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.visualizarProjFimDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.label30 = new System.Windows.Forms.Label();
-            this.rectangleShape32 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.visualizarProjetoButton = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.InsertProjetoPainel.SuspendLayout();
             this.InsertColabPainel.SuspendLayout();
             this.SearchColabBasicaPainel.SuspendLayout();
             this.AlterColabPainel.SuspendLayout();
             this.HomePainel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SearchEquipaProjetoPanel.SuspendLayout();
             this.AlterDispColabPainel.SuspendLayout();
             this.SearchColabPerfilPainel.SuspendLayout();
             this.gerarEquipaPanel.SuspendLayout();
-            this.shapeContainer8.SuspendLayout();
             this.confirmPanel.SuspendLayout();
             this.po.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPo)).BeginInit();
@@ -263,7 +269,6 @@
             this.alterarInfoColabPanel.SuspendLayout();
             this.projetoEquipaPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -864,8 +869,8 @@
             this.comboBoxBasica.FormattingEnabled = true;
             this.comboBoxBasica.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.comboBoxBasica.Items.AddRange(new object[] {
-            "Disponivel",
-            "Indisponivel"});
+            "Ativo",
+            "Inativo"});
             this.comboBoxBasica.Location = new System.Drawing.Point(487, 210);
             this.comboBoxBasica.Name = "comboBoxBasica";
             this.comboBoxBasica.Size = new System.Drawing.Size(245, 31);
@@ -987,9 +992,9 @@
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label9.Location = new System.Drawing.Point(12, 200);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(243, 23);
+            this.label9.Size = new System.Drawing.Size(256, 23);
             this.label9.TabIndex = 11;
-            this.label9.Text = "Lista de Colboradores";
+            this.label9.Text = "Lista de Colaboradores";
             // 
             // label8
             // 
@@ -1085,8 +1090,19 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(340, 93);
             this.button3.TabIndex = 19;
-            this.button3.Text = "Esteja atento ás novidades através do nosso Website";
+            this.button3.Text = "Acompanhe as nosas redes sociais";
             this.button3.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(389, 217);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(635, 323);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 18;
+            this.pictureBox1.TabStop = false;
             // 
             // button2
             // 
@@ -1099,7 +1115,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(340, 93);
             this.button2.TabIndex = 7;
-            this.button2.Text = "Esteja atento ás novidades através do nosso Website";
+            this.button2.Text = "Não perca as inovacões da softbusiness";
             this.button2.UseVisualStyleBackColor = false;
             // 
             // HomeWebsiteButton
@@ -1123,7 +1139,7 @@
             this.HomeLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(222)))));
             this.HomeLabel.Font = new System.Drawing.Font("Verdana", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HomeLabel.ForeColor = System.Drawing.Color.White;
-            this.HomeLabel.Location = new System.Drawing.Point(343, 74);
+            this.HomeLabel.Location = new System.Drawing.Point(500, 75);
             this.HomeLabel.Name = "HomeLabel";
             this.HomeLabel.Size = new System.Drawing.Size(330, 59);
             this.HomeLabel.TabIndex = 0;
@@ -1201,6 +1217,107 @@
             this.SearchEquipaProjetoPanel.Size = new System.Drawing.Size(1055, 650);
             this.SearchEquipaProjetoPanel.TabIndex = 5;
             // 
+            // visualizarProjetoButton
+            // 
+            this.visualizarProjetoButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(222)))));
+            this.visualizarProjetoButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.visualizarProjetoButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(131)))), ((int)(((byte)(195)))));
+            this.visualizarProjetoButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(131)))), ((int)(((byte)(195)))));
+            this.visualizarProjetoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.visualizarProjetoButton.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.visualizarProjetoButton.ForeColor = System.Drawing.Color.White;
+            this.visualizarProjetoButton.Location = new System.Drawing.Point(251, 549);
+            this.visualizarProjetoButton.Name = "visualizarProjetoButton";
+            this.visualizarProjetoButton.Size = new System.Drawing.Size(246, 48);
+            this.visualizarProjetoButton.TabIndex = 26;
+            this.visualizarProjetoButton.Text = "Visualizar Projetos";
+            this.visualizarProjetoButton.UseVisualStyleBackColor = false;
+            this.visualizarProjetoButton.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label30.Location = new System.Drawing.Point(297, 255);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(109, 24);
+            this.label30.TabIndex = 25;
+            this.label30.Text = "Data Final:";
+            // 
+            // visualizarProjFimDateTimePicker
+            // 
+            this.visualizarProjFimDateTimePicker.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.visualizarProjFimDateTimePicker.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.visualizarProjFimDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.visualizarProjFimDateTimePicker.Location = new System.Drawing.Point(442, 253);
+            this.visualizarProjFimDateTimePicker.Name = "visualizarProjFimDateTimePicker";
+            this.visualizarProjFimDateTimePicker.Size = new System.Drawing.Size(323, 31);
+            this.visualizarProjFimDateTimePicker.TabIndex = 24;
+            // 
+            // visualizarProjDateTimePicker
+            // 
+            this.visualizarProjDateTimePicker.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.visualizarProjDateTimePicker.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.visualizarProjDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.visualizarProjDateTimePicker.Location = new System.Drawing.Point(442, 192);
+            this.visualizarProjDateTimePicker.Name = "visualizarProjDateTimePicker";
+            this.visualizarProjDateTimePicker.Size = new System.Drawing.Size(323, 31);
+            this.visualizarProjDateTimePicker.TabIndex = 21;
+            // 
+            // visualizarProjetoEquipaButton
+            // 
+            this.visualizarProjetoEquipaButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(222)))));
+            this.visualizarProjetoEquipaButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.visualizarProjetoEquipaButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(131)))), ((int)(((byte)(195)))));
+            this.visualizarProjetoEquipaButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(131)))), ((int)(((byte)(195)))));
+            this.visualizarProjetoEquipaButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.visualizarProjetoEquipaButton.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.visualizarProjetoEquipaButton.ForeColor = System.Drawing.Color.White;
+            this.visualizarProjetoEquipaButton.Location = new System.Drawing.Point(584, 549);
+            this.visualizarProjetoEquipaButton.Name = "visualizarProjetoEquipaButton";
+            this.visualizarProjetoEquipaButton.Size = new System.Drawing.Size(246, 48);
+            this.visualizarProjetoEquipaButton.TabIndex = 23;
+            this.visualizarProjetoEquipaButton.Text = "Visualizar Equipa";
+            this.visualizarProjetoEquipaButton.UseVisualStyleBackColor = false;
+            this.visualizarProjetoEquipaButton.Click += new System.EventHandler(this.visualizarProjetoEquipaButton_Click);
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(222)))));
+            this.label29.Location = new System.Drawing.Point(632, 498);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(417, 16);
+            this.label29.TabIndex = 22;
+            this.label29.Text = "Nota: Para ver a equipa associada, selecione um projeto";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label11.Location = new System.Drawing.Point(297, 193);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(117, 24);
+            this.label11.TabIndex = 21;
+            this.label11.Text = "Data inicial:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(222)))));
+            this.label10.Font = new System.Drawing.Font("Verdana", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(368, 84);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(588, 42);
+            this.label10.TabIndex = 21;
+            this.label10.Text = "Visualizar Projetos e Equipas";
+            // 
             // listViewSearchEquipaProjeto
             // 
             this.listViewSearchEquipaProjeto.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -1234,6 +1351,11 @@
             this.columnHeader14.Text = "Data inicio";
             this.columnHeader14.Width = 282;
             // 
+            // columnHeader23
+            // 
+            this.columnHeader23.Text = "Data fim";
+            this.columnHeader23.Width = 269;
+            // 
             // shapeContainer5
             // 
             this.shapeContainer5.Location = new System.Drawing.Point(0, 0);
@@ -1246,6 +1368,26 @@
             this.shapeContainer5.Size = new System.Drawing.Size(1055, 650);
             this.shapeContainer5.TabIndex = 12;
             this.shapeContainer5.TabStop = false;
+            // 
+            // rectangleShape32
+            // 
+            this.rectangleShape32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.rectangleShape32.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
+            this.rectangleShape32.BorderColor = System.Drawing.Color.White;
+            this.rectangleShape32.FillGradientColor = System.Drawing.Color.Transparent;
+            this.rectangleShape32.Location = new System.Drawing.Point(1, 240);
+            this.rectangleShape32.Name = "rectangleShape32";
+            this.rectangleShape32.Size = new System.Drawing.Size(1053, 56);
+            // 
+            // rectangleShape31
+            // 
+            this.rectangleShape31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.rectangleShape31.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
+            this.rectangleShape31.BorderColor = System.Drawing.Color.White;
+            this.rectangleShape31.FillGradientColor = System.Drawing.Color.Transparent;
+            this.rectangleShape31.Location = new System.Drawing.Point(0, 177);
+            this.rectangleShape31.Name = "rectangleShape31";
+            this.rectangleShape31.Size = new System.Drawing.Size(1053, 56);
             // 
             // rectangleShape14
             // 
@@ -1579,16 +1721,17 @@
             // gerarEquipaPanel
             // 
             this.gerarEquipaPanel.BackColor = System.Drawing.Color.White;
-            this.gerarEquipaPanel.Controls.Add(this.gerarEquipaButton);
             this.gerarEquipaPanel.Controls.Add(this.label21);
+            this.gerarEquipaPanel.Controls.Add(this.gerarWhitePanel);
+            this.gerarEquipaPanel.Controls.Add(this.sm);
+            this.gerarEquipaPanel.Controls.Add(this.confirmPanel);
+            this.gerarEquipaPanel.Controls.Add(this.st);
+            this.gerarEquipaPanel.Controls.Add(this.po);
+            this.gerarEquipaPanel.Controls.Add(this.shapeContainer8);
+            this.gerarEquipaPanel.Controls.Add(this.gerarEquipaButton);
             this.gerarEquipaPanel.Controls.Add(this.smButton);
             this.gerarEquipaPanel.Controls.Add(this.stButton);
             this.gerarEquipaPanel.Controls.Add(this.poButton);
-            this.gerarEquipaPanel.Controls.Add(this.shapeContainer8);
-            this.gerarEquipaPanel.Controls.Add(this.gerarWhitePanel);
-            this.gerarEquipaPanel.Controls.Add(this.po);
-            this.gerarEquipaPanel.Controls.Add(this.st);
-            this.gerarEquipaPanel.Controls.Add(this.sm);
             this.gerarEquipaPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gerarEquipaPanel.Location = new System.Drawing.Point(0, 0);
             this.gerarEquipaPanel.Name = "gerarEquipaPanel";
@@ -1619,7 +1762,7 @@
             this.label21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(222)))));
             this.label21.Font = new System.Drawing.Font("Verdana", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.Color.White;
-            this.label21.Location = new System.Drawing.Point(485, 75);
+            this.label21.Location = new System.Drawing.Point(475, 75);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(355, 59);
             this.label21.TabIndex = 15;
@@ -1678,7 +1821,6 @@
             // 
             // shapeContainer8
             // 
-            this.shapeContainer8.Controls.Add(this.confirmPanel);
             this.shapeContainer8.Location = new System.Drawing.Point(0, 0);
             this.shapeContainer8.Margin = new System.Windows.Forms.Padding(0);
             this.shapeContainer8.Name = "shapeContainer8";
@@ -1698,7 +1840,7 @@
             this.confirmPanel.Controls.Add(this.richTextBoxST);
             this.confirmPanel.Controls.Add(this.comboBoxPO);
             this.confirmPanel.Controls.Add(this.comboBoxSM);
-            this.confirmPanel.Location = new System.Drawing.Point(267, 192);
+            this.confirmPanel.Location = new System.Drawing.Point(268, 193);
             this.confirmPanel.Name = "confirmPanel";
             this.confirmPanel.Size = new System.Drawing.Size(790, 435);
             this.confirmPanel.TabIndex = 17;
@@ -1823,6 +1965,8 @@
             // 
             // po
             // 
+            this.po.Controls.Add(this.label32);
+            this.po.Controls.Add(this.label31);
             this.po.Controls.Add(this.button6);
             this.po.Controls.Add(this.dataGridViewPo);
             this.po.Location = new System.Drawing.Point(268, 196);
@@ -1850,14 +1994,14 @@
             // dataGridViewPo
             // 
             this.dataGridViewPo.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewPo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle67.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle67.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle67.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle67.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle67.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle67.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle67.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewPo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle67;
             this.dataGridViewPo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewPo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.vazio,
@@ -1866,14 +2010,14 @@
             this.colConhecimentoIndustry,
             this.colEmpreendedor,
             this.colFinanceiro});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewPo.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle68.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle68.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle68.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle68.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle68.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle68.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle68.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewPo.DefaultCellStyle = dataGridViewCellStyle68;
             this.dataGridViewPo.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
             this.dataGridViewPo.Location = new System.Drawing.Point(3, 7);
             this.dataGridViewPo.Name = "dataGridViewPo";
@@ -1926,6 +2070,8 @@
             // 
             // st
             // 
+            this.st.Controls.Add(this.label33);
+            this.st.Controls.Add(this.label34);
             this.st.Controls.Add(this.button8);
             this.st.Controls.Add(this.dataGridViewSt);
             this.st.Location = new System.Drawing.Point(268, 193);
@@ -1953,14 +2099,14 @@
             // dataGridViewSt
             // 
             this.dataGridViewSt.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewSt.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle69.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle69.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle69.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle69.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle69.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle69.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle69.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewSt.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle69;
             this.dataGridViewSt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSt.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn7,
@@ -1971,14 +2117,14 @@
             this.dataGridViewTextBoxColumn12,
             this.dataGridViewTextBoxColumn13,
             this.Column8});
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewSt.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle70.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle70.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle70.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle70.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle70.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle70.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle70.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewSt.DefaultCellStyle = dataGridViewCellStyle70;
             this.dataGridViewSt.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
             this.dataGridViewSt.Location = new System.Drawing.Point(3, 6);
             this.dataGridViewSt.Name = "dataGridViewSt";
@@ -2041,6 +2187,8 @@
             // 
             // sm
             // 
+            this.sm.Controls.Add(this.label35);
+            this.sm.Controls.Add(this.label36);
             this.sm.Controls.Add(this.button7);
             this.sm.Controls.Add(this.dataGridViewSm);
             this.sm.Location = new System.Drawing.Point(267, 192);
@@ -2068,14 +2216,14 @@
             // dataGridViewSm
             // 
             this.dataGridViewSm.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewSm.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle71.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle71.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle71.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle71.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle71.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle71.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle71.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewSm.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle71;
             this.dataGridViewSm.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSm.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -2085,14 +2233,14 @@
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6,
             this.Column6});
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewSm.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle72.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle72.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle72.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle72.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle72.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle72.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle72.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewSm.DefaultCellStyle = dataGridViewCellStyle72;
             this.dataGridViewSm.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
             this.dataGridViewSm.Location = new System.Drawing.Point(8, 7);
             this.dataGridViewSm.Name = "dataGridViewSm";
@@ -2416,134 +2564,9 @@
             // 
             // contextMenuStrip1
             // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(222)))));
-            this.label10.Font = new System.Drawing.Font("Verdana", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(368, 84);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(588, 42);
-            this.label10.TabIndex = 21;
-            this.label10.Text = "Visualizar Projetos e Equipas";
-            // 
-            // columnHeader23
-            // 
-            this.columnHeader23.Text = "Data fim";
-            this.columnHeader23.Width = 269;
-            // 
-            // rectangleShape31
-            // 
-            this.rectangleShape31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.rectangleShape31.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
-            this.rectangleShape31.BorderColor = System.Drawing.Color.White;
-            this.rectangleShape31.FillGradientColor = System.Drawing.Color.Transparent;
-            this.rectangleShape31.Location = new System.Drawing.Point(0, 177);
-            this.rectangleShape31.Name = "rectangleShape31";
-            this.rectangleShape31.Size = new System.Drawing.Size(1053, 56);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label11.Location = new System.Drawing.Point(297, 193);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(117, 24);
-            this.label11.TabIndex = 21;
-            this.label11.Text = "Data inicial:";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(222)))));
-            this.label29.Location = new System.Drawing.Point(632, 498);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(417, 16);
-            this.label29.TabIndex = 22;
-            this.label29.Text = "Nota: Para ver a equipa associada, selecione um projeto";
-            // 
-            // visualizarProjetoEquipaButton
-            // 
-            this.visualizarProjetoEquipaButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(222)))));
-            this.visualizarProjetoEquipaButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.visualizarProjetoEquipaButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(131)))), ((int)(((byte)(195)))));
-            this.visualizarProjetoEquipaButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(131)))), ((int)(((byte)(195)))));
-            this.visualizarProjetoEquipaButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.visualizarProjetoEquipaButton.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.visualizarProjetoEquipaButton.ForeColor = System.Drawing.Color.White;
-            this.visualizarProjetoEquipaButton.Location = new System.Drawing.Point(584, 549);
-            this.visualizarProjetoEquipaButton.Name = "visualizarProjetoEquipaButton";
-            this.visualizarProjetoEquipaButton.Size = new System.Drawing.Size(246, 48);
-            this.visualizarProjetoEquipaButton.TabIndex = 23;
-            this.visualizarProjetoEquipaButton.Text = "Visualizar Equipa";
-            this.visualizarProjetoEquipaButton.UseVisualStyleBackColor = false;
-            this.visualizarProjetoEquipaButton.Click += new System.EventHandler(this.visualizarProjetoEquipaButton_Click);
-            // 
-            // visualizarProjDateTimePicker
-            // 
-            this.visualizarProjDateTimePicker.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.visualizarProjDateTimePicker.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.visualizarProjDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.visualizarProjDateTimePicker.Location = new System.Drawing.Point(442, 192);
-            this.visualizarProjDateTimePicker.Name = "visualizarProjDateTimePicker";
-            this.visualizarProjDateTimePicker.Size = new System.Drawing.Size(323, 31);
-            this.visualizarProjDateTimePicker.TabIndex = 21;
-            // 
-            // visualizarProjFimDateTimePicker
-            // 
-            this.visualizarProjFimDateTimePicker.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.visualizarProjFimDateTimePicker.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.visualizarProjFimDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.visualizarProjFimDateTimePicker.Location = new System.Drawing.Point(442, 253);
-            this.visualizarProjFimDateTimePicker.Name = "visualizarProjFimDateTimePicker";
-            this.visualizarProjFimDateTimePicker.Size = new System.Drawing.Size(323, 31);
-            this.visualizarProjFimDateTimePicker.TabIndex = 24;
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label30.Location = new System.Drawing.Point(297, 255);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(109, 24);
-            this.label30.TabIndex = 25;
-            this.label30.Text = "Data Final:";
-            // 
-            // rectangleShape32
-            // 
-            this.rectangleShape32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.rectangleShape32.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
-            this.rectangleShape32.BorderColor = System.Drawing.Color.White;
-            this.rectangleShape32.FillGradientColor = System.Drawing.Color.Transparent;
-            this.rectangleShape32.Location = new System.Drawing.Point(1, 240);
-            this.rectangleShape32.Name = "rectangleShape32";
-            this.rectangleShape32.Size = new System.Drawing.Size(1053, 56);
-            // 
-            // visualizarProjetoButton
-            // 
-            this.visualizarProjetoButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(222)))));
-            this.visualizarProjetoButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.visualizarProjetoButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(131)))), ((int)(((byte)(195)))));
-            this.visualizarProjetoButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(131)))), ((int)(((byte)(195)))));
-            this.visualizarProjetoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.visualizarProjetoButton.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.visualizarProjetoButton.ForeColor = System.Drawing.Color.White;
-            this.visualizarProjetoButton.Location = new System.Drawing.Point(251, 549);
-            this.visualizarProjetoButton.Name = "visualizarProjetoButton";
-            this.visualizarProjetoButton.Size = new System.Drawing.Size(246, 48);
-            this.visualizarProjetoButton.TabIndex = 26;
-            this.visualizarProjetoButton.Text = "Visualizar Projetos";
-            this.visualizarProjetoButton.UseVisualStyleBackColor = false;
-            this.visualizarProjetoButton.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // pictureBox2
             // 
@@ -2556,16 +2579,71 @@
             this.pictureBox2.TabIndex = 20;
             this.pictureBox2.TabStop = false;
             // 
-            // pictureBox1
+            // label31
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(389, 217);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(635, 323);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 18;
-            this.pictureBox1.TabStop = false;
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(222)))));
+            this.label31.Location = new System.Drawing.Point(536, 260);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(230, 18);
+            this.label31.TabIndex = 10;
+            this.label31.Text = "Escala a ser usada: 1/9 - 9";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(222)))));
+            this.label32.Location = new System.Drawing.Point(345, 284);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(426, 18);
+            this.label32.TabIndex = 11;
+            this.label32.Text = "De menos importante (1/9) a mais importante (9)";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(222)))));
+            this.label33.Location = new System.Drawing.Point(350, 279);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(426, 18);
+            this.label33.TabIndex = 14;
+            this.label33.Text = "De menos importante (1/9) a mais importante (9)";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(222)))));
+            this.label34.Location = new System.Drawing.Point(541, 255);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(230, 18);
+            this.label34.TabIndex = 13;
+            this.label34.Text = "Escala a ser usada: 1/9 - 9";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(222)))));
+            this.label35.Location = new System.Drawing.Point(351, 280);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(426, 18);
+            this.label35.TabIndex = 13;
+            this.label35.Text = "De menos importante (1/9) a mais importante (9)";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(222)))));
+            this.label36.Location = new System.Drawing.Point(542, 256);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(230, 18);
+            this.label36.TabIndex = 12;
+            this.label36.Text = "Escala a ser usada: 1/9 - 9";
             // 
             // MainPainel
             // 
@@ -2575,6 +2653,9 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.exitAppButton);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.SearchColabBasicaPainel);
+            this.Controls.Add(this.AlterColabPainel);
+            this.Controls.Add(this.InsertColabPainel);
             this.Controls.Add(this.SearchEquipaProjetoPanel);
             this.Controls.Add(this.AlterDispColabPainel);
             this.Controls.Add(this.SearchColabPerfilPainel);
@@ -2583,9 +2664,6 @@
             this.Controls.Add(this.gerarEquipaPanel);
             this.Controls.Add(this.HomePainel);
             this.Controls.Add(this.InsertProjetoPainel);
-            this.Controls.Add(this.SearchColabBasicaPainel);
-            this.Controls.Add(this.AlterColabPainel);
-            this.Controls.Add(this.InsertColabPainel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainPainel";
@@ -2603,6 +2681,7 @@
             this.AlterColabPainel.PerformLayout();
             this.HomePainel.ResumeLayout(false);
             this.HomePainel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.SearchEquipaProjetoPanel.ResumeLayout(false);
             this.SearchEquipaProjetoPanel.PerformLayout();
             this.AlterDispColabPainel.ResumeLayout(false);
@@ -2611,21 +2690,22 @@
             this.SearchColabPerfilPainel.PerformLayout();
             this.gerarEquipaPanel.ResumeLayout(false);
             this.gerarEquipaPanel.PerformLayout();
-            this.shapeContainer8.ResumeLayout(false);
             this.confirmPanel.ResumeLayout(false);
             this.confirmPanel.PerformLayout();
             this.po.ResumeLayout(false);
+            this.po.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPo)).EndInit();
             this.st.ResumeLayout(false);
+            this.st.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSt)).EndInit();
             this.sm.ResumeLayout(false);
+            this.sm.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSm)).EndInit();
             this.alterarInfoColabPanel.ResumeLayout(false);
             this.alterarInfoColabPanel.PerformLayout();
             this.projetoEquipaPanel.ResumeLayout(false);
             this.projetoEquipaPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2839,5 +2919,11 @@
         private System.Windows.Forms.DateTimePicker visualizarProjFimDateTimePicker;
         private System.Windows.Forms.DateTimePicker visualizarProjDateTimePicker;
         private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape32;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label31;
     }
 }

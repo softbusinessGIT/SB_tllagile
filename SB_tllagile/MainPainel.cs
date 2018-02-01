@@ -51,7 +51,7 @@ namespace SB_tllagile
         private void PesquisarBasicaButton_Click(object sender, EventArgs e)
         {
             //DataAccess db = new DataAccess();
-            if ((comboBoxBasica.Text).Equals("Indisponivel"))
+            if ((comboBoxBasica.Text).Equals("Inativo"))
             {
                 // A lista "listaPesquisaBasicaColab" vai conter o retorno da pesquisa á BD
                 listaPesquisaBasicaColab = db.getPessoa(0);
@@ -70,7 +70,14 @@ namespace SB_tllagile
             {
                 ListViewItem item1 = new ListViewItem(colab.id_colab);
                 item1.SubItems.Add(colab.nome);
-                item1.SubItems.Add(colab.estado);
+                if (colab.estado.Equals("True"))
+                {
+                    item1.SubItems.Add("Ativo");
+                }
+                else
+                {
+                    item1.SubItems.Add("Inativo");
+                }
                 item1.SubItems.Add(colab.email);
 
                 listViewSearchColab.Items.Add(item1);
@@ -309,7 +316,7 @@ namespace SB_tllagile
         // ----------------------------Visualizar equipa por estado------------------------------
         private void porEstadoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-          
+
         }
 
         private void SearchEquipaButton_Click(object sender, EventArgs e)
@@ -446,6 +453,10 @@ namespace SB_tllagile
             sm.Visible = false;
             po.Visible = true;
 
+            //Limpar Rows da datagridview
+            dataGridViewPo.Rows.Clear();
+            dataGridViewPo.Refresh();
+
             dataGridViewPo.Rows.Add("Communication Skill", 1);
             dataGridViewPo.Rows.Add("Knowledge of business models", 0, 1);
             dataGridViewPo.Rows.Add("Knowledge of industry field", 0, 0, 1);
@@ -547,6 +558,10 @@ namespace SB_tllagile
             sm.Visible = true;
             po.Visible = false;
 
+            //Limpar Rows da datagridview
+            dataGridViewSm.Rows.Clear();
+            dataGridViewSm.Refresh();
+
             dataGridViewSm.Rows.Add("Communication Skill", 1);
             dataGridViewSm.Rows.Add("Project Managment tools", 0, 1);
             dataGridViewSm.Rows.Add("Continuos integration tools", 0, 0, 1);
@@ -615,6 +630,10 @@ namespace SB_tllagile
             st.Visible = true;
             sm.Visible = false;
             po.Visible = false;
+
+            //Limpar Rows da datagridview
+            dataGridViewSt.Rows.Clear();
+            dataGridViewSt.Refresh();
 
             dataGridViewSt.Rows.Add("Programming language skills", 1);
             dataGridViewSt.Rows.Add("Problem solving abilities", 0, 1);
@@ -710,6 +729,13 @@ namespace SB_tllagile
                         tam = 8;
                         break;
                 }
+
+
+                //DialogResult dialogCamposIns = MessageBox.Show(tam.ToString(),
+                //  "Erro - Numero de colaboradores insuficiente", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+
+
                 for (int i = 0; i < tam; i++)
                 {
                     //Altera na BD o estado equipa do colaborador
@@ -772,6 +798,16 @@ namespace SB_tllagile
             alterarInfoColabPanel.Visible = false;
             projetoEquipaPanel.Visible = true;
 
+
+            listaEquipa = db.searchProjetosAtivos();//Visualizar os projetos cuja data final já passou
+
+            foreach (Equipa colabatual in listaEquipa)
+            {
+                db.updateEstadoEquipaColabBd(colabatual.id_colab, "0");//alterar estado_equipa na tabela colab que indica se está numa equipa
+                db.alterEstadoEquipaBd(colabatual.id_colab, "0");//colocar uma equipa de um projeto a 0
+            }
+
+
             //Pesquisar na db os projetos ativos
             listaProjetos = db.searchProjetosBd();
 
@@ -783,8 +819,8 @@ namespace SB_tllagile
             {
                 ListViewItem item1 = new ListViewItem(projetoAtual.id_projeto);
                 item1.SubItems.Add(projetoAtual.nome);
-                item1.SubItems.Add(projetoAtual.data_ini.ToString());
-                item1.SubItems.Add(projetoAtual.data_fim.ToString());
+                item1.SubItems.Add(projetoAtual.data_ini.ToString("yyyy-MM-dd"));
+                item1.SubItems.Add(projetoAtual.data_fim.ToString("yyyy-MM-dd"));
 
                 porjetoListView.Items.Add(item1);
             }
@@ -837,7 +873,7 @@ namespace SB_tllagile
                 ListViewItem item1 = new ListViewItem(colab.id_colab);
                 item1.SubItems.Add(colab.nome);
                 item1.SubItems.Add(colab.email);
-                item1.SubItems.Add(colab.data_nascimento.ToString());
+                item1.SubItems.Add(colab.data_nascimento.ToString("yyyy-MM-dd"));
 
                 alterarInfoColabListView.Items.Add(item1);
             }
@@ -864,7 +900,17 @@ namespace SB_tllagile
                 comboBoxSM.Items.Add(scrumMasterColab[i].colab_nome);
             }
 
-            for (int i = 0; i < scrumTeam.Length; i++)
+
+
+            //DialogResult dialogCamposIns = MessageBox.Show(tam.ToString(),
+            //       "Erro - Numero de colaboradores insuficiente", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+
+
+
+
+
+            for (int i = 0; i < tam; i++)
             {
                 richTextBoxST.Text = richTextBoxST.Text + Environment.NewLine + scrumTeam[i].colab_nome;
             }
@@ -879,7 +925,7 @@ namespace SB_tllagile
         {
             //Pesquisa na Base de dados o utilizador
             listaPesquisaBasicaColab = db.pontuacaoColab();
-            if(listaPesquisaBasicaColab.Count() > 4)
+            if (listaPesquisaBasicaColab.Count() > 4)
             {
                 SearchColabBasicaPainel.Visible = false;
                 InsertProjetoPainel.Visible = false;
@@ -923,6 +969,9 @@ namespace SB_tllagile
             }
             gerarEquipaPanel.Visible = false;
             projetoEquipaPanel.Visible = true;
+            st.Visible = false;
+            sm.Visible = false;
+            po.Visible = false;
         }
 
         private void confEquipaButton_Click(object sender, EventArgs e)
@@ -934,14 +983,31 @@ namespace SB_tllagile
 
             //Inserir equipa na base de dados
             db.InsertEquipaBd("", "1", productOwner[posPO].id_colab, selectedProjeto, "1");
-            db.InsertEquipaBd("", "1", scrumMasterColab[posSM].id_colab, selectedProjeto, "1");
+            db.InsertEquipaBd("", "1", scrumMasterColab[posSM].id_colab, selectedProjeto, "2");
 
             for (int i = 0; i < tam; i++)
             {
-                db.InsertEquipaBd("", "1", scrumTeam[i].id_colab, selectedProjeto, "1");
+                db.InsertEquipaBd("", "1", scrumTeam[i].id_colab, selectedProjeto, "3");
             }
+            //equipas
+            gerarWhitePanel.Visible = false;
+            confirmPanel.Visible = false;
+            st.Visible = false;
+            sm.Visible = false;
+            po.Visible = false;
 
-
+            //geral
+            SearchColabBasicaPainel.Visible = false;
+            InsertProjetoPainel.Visible = false;
+            InsertColabPainel.Visible = false;
+            AlterColabPainel.Visible = false;
+            HomePainel.Visible = true;
+            SearchEquipaProjetoPanel.Visible = false;
+            AlterDispColabPainel.Visible = false;
+            SearchColabPerfilPainel.Visible = false;
+            gerarEquipaPanel.Visible = true;
+            alterarInfoColabPanel.Visible = false;
+            projetoEquipaPanel.Visible = false;
 
             //Criar historico de equipas
 
@@ -977,7 +1043,7 @@ namespace SB_tllagile
             if (visualizarProjDateTimePicker.Value.CompareTo(visualizarProjFimDateTimePicker.Value) <= 0)
             {
                 listaProjetos = db.searchProjetoDatasBd(visualizarProjDateTimePicker.Value, visualizarProjFimDateTimePicker.Value);
-
+                
                 //Limpar a listView
                 listViewSearchEquipaProjeto.Items.Clear();
 
@@ -1008,23 +1074,23 @@ namespace SB_tllagile
                 DialogResult dialogDataVerifica = MessageBox.Show("Data final é inferior á data incial do Projeto",
                "Erro - Datas erradas", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
         }
 
         private void visualizarProjetoEquipaButton_Click(object sender, EventArgs e)
         {
-             try
+            try
             {
                 //A variavel id vai ter o valor do subitem[0] da row selecionada
-                String id = listViewPerfilColab.SelectedItems[0].SubItems[0].Text;
+                String id = listViewSearchEquipaProjeto.SelectedItems[0].SubItems[0].Text;
 
                 //Instanciar e Atribuir o objeto PerfilColaborador
-                PerfilColaborador janela = new PerfilColaborador(id);
+                EquipaDeProjeto janela = new EquipaDeProjeto(id);
                 janela.Show();
             }
             catch (Exception)
             {
-                DialogResult dialogCamposIns = MessageBox.Show("Colaborador não selecionado, faça uma seleção e tente novamente!",
+                DialogResult dialogCamposIns = MessageBox.Show("Projeto não selecionado, faça uma seleção e tente novamente!",
                    "Erro - seleção", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
